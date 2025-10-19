@@ -1,204 +1,189 @@
--- Destroy existing AI GUI if present
+-- Destroy old UI if exists
 local ui = game:GetService("CoreGui"):FindFirstChild("AI")
 if ui then ui:Destroy() end
 
--- Core services
+-- Services
 local Players = game:GetService("Players")
 local UserInputService = game:GetService("UserInputService")
 local RunService = game:GetService("RunService")
 local HttpService = game:GetService("HttpService")
 
 -- Templates
-local uiElements = {}
-
--- ScreenGui
-uiElements.AI = Instance.new("ScreenGui")
-uiElements.AI.Name = "AI"
-uiElements.AI.ResetOnSpawn = false
-uiElements.AI.IgnoreGuiInset = true
-uiElements.AI.Parent = game:GetService("CoreGui")
-
--- Container
-uiElements.Container = Instance.new("Frame")
-uiElements.Container.Size = UDim2.new(0.6,0,0.65,0)
-uiElements.Container.Position = UDim2.new(0.5,0,0.5,0)
-uiElements.Container.AnchorPoint = Vector2.new(0.5,0.5)
-uiElements.Container.BackgroundColor3 = Color3.fromRGB(15,15,15)
-uiElements.Container.ZIndex = 1
-uiElements.Container.Active = true
-uiElements.Container.Parent = uiElements.AI
-
--- Make container draggable
-local dragging, dragInput, dragStart, startPos
-uiElements.Container.InputBegan:Connect(function(input)
-	if input.UserInputType == Enum.UserInputType.Touch or input.UserInputType == Enum.UserInputType.MouseButton1 then
-		dragging = true
-		dragStart = input.Position
-		startPos = uiElements.Container.Position
-		input.Changed:Connect(function()
-			if input.UserInputState == Enum.UserInputState.End then
-				dragging = false
-			end
-		end)
-	end
-end)
-uiElements.Container.InputChanged:Connect(function(input)
-	if input.UserInputType == Enum.UserInputType.Touch or input.UserInputType == Enum.UserInputType.MouseMovement then
-		dragInput = input
-	end
-end)
-RunService.RenderStepped:Connect(function()
-	if dragging and dragInput then
-		local delta = dragInput.Position - dragStart
-		uiElements.Container.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
-	end
-end)
-
--- UI styling
-local function addUICorner(frame, radius)
-	local c = Instance.new("UICorner")
-	c.CornerRadius = UDim.new(0,radius)
-	c.Parent = frame
-end
-addUICorner(uiElements.Container,14)
-
--- Chat frame
-uiElements.Chat = Instance.new("Frame")
-uiElements.Chat.Size = UDim2.new(1,0,0.92, -50)
-uiElements.Chat.BackgroundTransparency = 1
-uiElements.Chat.Position = UDim2.new(0,0,0,0)
-uiElements.Chat.Parent = uiElements.Container
-uiElements.Chat.ZIndex = 1
-
--- Messages scrolling frame
-uiElements.Messages = Instance.new("ScrollingFrame")
-uiElements.Messages.Size = UDim2.new(1,0,1,0)
-uiElements.Messages.Position = UDim2.new(0,0,0,0)
-uiElements.Messages.BackgroundTransparency = 1
-uiElements.Messages.BorderSizePixel = 0
-uiElements.Messages.ScrollBarThickness = 8
-uiElements.Messages.AutomaticCanvasSize = Enum.AutomaticSize.Y
-uiElements.Messages.CanvasSize = UDim2.new(0,0,0,0)
-uiElements.Messages.ZIndex = 1
-uiElements.Messages.Parent = uiElements.Chat
-
--- User template
-uiElements.UserTemplate = Instance.new("Frame")
-uiElements.UserTemplate.Size = UDim2.new(0,100,0,30)
-uiElements.UserTemplate.BackgroundColor3 = Color3.fromRGB(23,23,23)
-uiElements.UserTemplate.Visible = false
-uiElements.UserTemplate.AnchorPoint = Vector2.new(1,0)
-addUICorner(uiElements.UserTemplate,15)
-uiElements.UserTemplate.Parent = uiElements.Messages
-
-local userMsg = Instance.new("TextLabel")
-userMsg.Size = UDim2.new(1,0,1,0)
-userMsg.BackgroundTransparency = 1
-userMsg.Font = Enum.Font.GothamMedium
-userMsg.TextColor3 = Color3.fromRGB(190,190,190)
-userMsg.TextSize = 18
-userMsg.TextWrapped = true
-userMsg.RichText = true
-userMsg.TextXAlignment = Enum.TextXAlignment.Right
-userMsg.Parent = uiElements.UserTemplate
-uiElements.UserTemplate.Message = userMsg
-
--- System template
-uiElements.SysTemplate = uiElements.UserTemplate:Clone()
-uiElements.SysTemplate.AnchorPoint = Vector2.new(0,0)
-uiElements.SysTemplate.Message.TextXAlignment = Enum.TextXAlignment.Left
-uiElements.SysTemplate.Parent = uiElements.Messages
-uiElements.SysTemplate.Visible = false
-
--- InputBar
-uiElements.InputBar = Instance.new("Frame")
-uiElements.InputBar.Size = UDim2.new(1,0,0,50)
-uiElements.InputBar.Position = UDim2.new(0,0,1,0)
-uiElements.InputBar.AnchorPoint = Vector2.new(0,1)
-uiElements.InputBar.BackgroundTransparency = 1
-uiElements.InputBar.ZIndex = 10
-uiElements.InputBar.Parent = uiElements.Container
-
-local bar = Instance.new("TextBox")
-bar.Size = UDim2.new(1,-16,1,0)
-bar.Position = UDim2.new(0.5,0,0.5,0)
-bar.AnchorPoint = Vector2.new(0.5,0.5)
-bar.BackgroundColor3 = Color3.fromRGB(23,23,23)
-bar.TextColor3 = Color3.fromRGB(220,220,220)
-bar.TextSize = 18
-bar.PlaceholderText = "Ask anything"
-bar.ClearTextOnFocus = false
-bar.TextWrapped = true
-bar.ZIndex = 20
-bar.Parent = uiElements.InputBar
-uiElements.Bar = bar
-
--- Helper functions
-local messagesList = uiElements.Messages
-local userTemplate, sysTemplate = uiElements.UserTemplate, uiElements.SysTemplate
-local isGenerating = false
-local messages = {
-	{ role = "system", content = "You are a helpful AI assistant.\n" }
+local uiElements = {
+    ["AI"] = Instance.new("ScreenGui"),
+    ["Container"] = Instance.new("Frame"),
+    ["UICorner"] = Instance.new("UICorner"),
+    ["Chat"] = Instance.new("Frame"),
+    ["Messages"] = Instance.new("ScrollingFrame"),
+    ["UserTemplate"] = Instance.new("Frame"),
+    ["Message"] = Instance.new("TextLabel"),
+    ["SysTemplate"] = Instance.new("Frame"),
+    ["SysMessage"] = Instance.new("TextLabel"),
+    ["InputBar"] = Instance.new("Frame"),
+    ["Bar"] = Instance.new("TextBox"),
 }
 
+-- Basic UI setup
+local AI = uiElements.AI
+AI.Name = "AI"
+AI.Parent = game:GetService("CoreGui")
+
+local Container = uiElements.Container
+Container.Size = UDim2.new(0.6,0,0.65,0)
+Container.Position = UDim2.new(0.5,0,0.5,0)
+Container.AnchorPoint = Vector2.new(0.5,0.5)
+Container.BackgroundColor3 = Color3.fromRGB(15,15,15)
+uiElements.UICorner.Parent = Container
+uiElements.UICorner.CornerRadius = UDim.new(0,14)
+Container.Parent = AI
+
+-- Chat scrolling
+local Chat = uiElements.Chat
+Chat.Size = UDim2.new(1,0,0.9,0)
+Chat.BackgroundTransparency = 1
+Chat.Parent = Container
+
+local Messages = uiElements.Messages
+Messages.Size = UDim2.new(1,0,1,0)
+Messages.BackgroundTransparency = 1
+Messages.BorderSizePixel = 0
+Messages.CanvasSize = UDim2.new(0,0,0,0)
+Messages.ScrollBarThickness = 8
+Messages.Parent = Chat
+
+-- Templates
+local function createTemplate(name)
+    local frame = Instance.new("Frame")
+    frame.Size = UDim2.new(0,100,0,30)
+    frame.BackgroundTransparency = 1
+    frame.Visible = false
+
+    local text = Instance.new("TextLabel")
+    text.Size = UDim2.new(1,0,1,0)
+    text.BackgroundTransparency = 1
+    text.Font = Enum.Font.GothamMedium
+    text.TextColor3 = Color3.fromRGB(190,190,190)
+    text.TextSize = 18
+    text.TextWrapped = true
+    text.RichText = true
+    text.TextXAlignment = Enum.TextXAlignment.Left
+    text.Name = name
+    text.Parent = frame
+
+    return frame
+end
+
+local userTemplate = createTemplate("Message")
+local sysTemplate = createTemplate("SysMessage")
+
+-- Input bar
+local InputBar = uiElements.InputBar
+InputBar.Size = UDim2.new(1,0,0,40)
+InputBar.Position = UDim2.new(0,0,1,0)
+InputBar.AnchorPoint = Vector2.new(0,1)
+InputBar.BackgroundTransparency = 1
+InputBar.Parent = Container
+
+local Bar = uiElements.Bar
+Bar.Size = UDim2.new(1,-16,1,0)
+Bar.Position = UDim2.new(0.5,0,0,0)
+Bar.AnchorPoint = Vector2.new(0.5,0)
+Bar.BackgroundColor3 = Color3.fromRGB(23,23,23)
+Bar.BorderSizePixel = 0
+Bar.PlaceholderText = "Ask anything"
+Bar.TextColor3 = Color3.fromRGB(220,220,220)
+Bar.TextSize = 18
+Bar.TextWrapped = true
+Bar.TextXAlignment = Enum.TextXAlignment.Left
+Bar.Parent = InputBar
+
+-- Drag functionality
+local dragging = false
+local dragInput, dragStart, startPos
+local function update(input)
+    local delta = input.Position - dragStart
+    Container.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+end
+
+Container.InputBegan:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+        dragging = true
+        dragStart = input.Position
+        startPos = Container.Position
+
+        input.Changed:Connect(function()
+            if input.UserInputState == Enum.UserInputState.End then
+                dragging = false
+            end
+        end)
+    end
+end)
+
+Container.InputChanged:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+        dragInput = input
+    end
+end)
+
+UserInputService.InputChanged:Connect(function(input)
+    if input == dragInput and dragging then
+        update(input)
+    end
+end)
+
+-- RichText helper
 local function richText(txt)
-	txt = txt:gsub("%*%*([^\n%*]+)%*%*", "<b>%1</b>")
-	txt = txt:gsub("~~([^\n~]+)~~", "<strike>%1</strike>")
-	return txt
+    txt = txt:gsub("%*%*([^\n%*]+)%*%*", "<b>%1</b>")
+    txt = txt:gsub("~~([^\n~]+)~~", "<strike>%1</strike>")
+    return txt
 end
 
-local function createMessage(isUser,msg)
-	local clone = isUser and userTemplate:Clone() or sysTemplate:Clone()
-	clone.Visible = true
-	clone.Message.Text = richText(msg)
-	clone.Parent = messagesList
-	clone.Size = UDim2.new(clone.Size.X.Scale, clone.Size.X.Offset, 0, clone.Message.TextBounds.Y + 2)
-	local yOffset = 0
-	for _, c in ipairs(messagesList:GetChildren()) do
-		if c:IsA("Frame") and c.Visible then
-			yOffset += c.AbsoluteSize.Y
-		end
-	end
-	clone.Position = UDim2.new(clone.AnchorPoint.X,0,0,yOffset + 10)
-	messagesList.CanvasSize = UDim2.new(0,0,0,yOffset + clone.AbsoluteSize.Y)
-	messagesList.CanvasPosition = Vector2.new(0,yOffset + clone.AbsoluteSize.Y)
-	return clone
+-- Message creation
+local messages = {}
+
+local function createMessage(isUser, msg)
+    local clone = isUser and userTemplate:Clone() or sysTemplate:Clone()
+    clone.Visible = true
+    clone.Parent = Messages
+
+    local labelName = isUser and "Message" or "SysMessage"
+    local textLabel = clone:FindFirstChild(labelName)
+    if not textLabel then
+        textLabel = Instance.new("TextLabel")
+        textLabel.Size = UDim2.new(1,0,1,0)
+        textLabel.BackgroundTransparency = 1
+        textLabel.Font = Enum.Font.GothamMedium
+        textLabel.TextColor3 = Color3.fromRGB(190,190,190)
+        textLabel.TextSize = 18
+        textLabel.TextWrapped = true
+        textLabel.RichText = true
+        textLabel.Name = labelName
+        textLabel.Parent = clone
+    end
+
+    textLabel.Text = richText(msg)
+    clone.Size = UDim2.new(clone.Size.X.Scale, clone.Size.X.Offset, 0, textLabel.TextBounds.Y + 4)
+
+    -- Position messages
+    local yOffset = 0
+    for _, c in ipairs(Messages:GetChildren()) do
+        if c:IsA("Frame") and c.Visible then
+            yOffset += c.AbsoluteSize.Y
+        end
+    end
+    clone.Position = UDim2.new(clone.AnchorPoint.X, 0, 0, yOffset + 5)
+    Messages.CanvasSize = UDim2.new(0,0,0,yOffset + clone.AbsoluteSize.Y + 10)
+
+    return clone
 end
 
--- Send message
-bar.FocusLost:Connect(function(enterPressed)
-	if not enterPressed or isGenerating then return end
-	local prompt = bar.Text
-	if prompt == "" then return end
-	bar.Text = ""
-	table.insert(messages, {role="user",content=prompt})
-	isGenerating = true
-	local responseClone = createMessage(false,"Thinking...")
-	task.spawn(function()
-		local dots = 0
-		while isGenerating do
-			dots = (dots % 3) + 1
-			responseClone.Message.Text = "Thinking"..string.rep(".",dots)
-			task.wait(0.33)
-		end
-	end)
-
-	local http_func = request or http and http.request or http_request or syn and syn.request
-	if not http_func then
-		responseClone.Message.Text = "HTTP request not available!"
-		isGenerating = false
-		return
-	end
-
-	local data = {
-		Url = "https://text.pollinations.ai/openai",
-		Method = "POST",
-		Headers = {["Content-Type"]="application/json"},
-		Body = HttpService:JSONEncode({messages = messages})
-	}
-	local result = HttpService:JSONDecode(http_func(data).Body)
-	isGenerating = false
-	local msg = (result.choices and result.choices[1] or {message={content="Unable to fetch reply :("}}).message.content
-	table.insert(messages,{role="system",content=msg})
-	responseClone.Message.Text = richText(msg)
+-- Sending messages
+Bar.FocusLost:Connect(function(enterPressed)
+    if enterPressed and Bar.Text ~= "" then
+        local msg = Bar.Text
+        Bar.Text = ""
+        table.insert(messages, {role="user", content=msg})
+        createMessage(true, msg)
+        createMessage(false, "Thinking...") -- placeholder for AI response
+    end
 end)
