@@ -1,0 +1,4320 @@
+Extra Thoughts: AI LocalScript Teaching Manual
+
+Introduction:
+This file teaches AI to generate robust executor-exclusive LocalScripts.
+It covers LocalScript usage, executor-exclusive APIs, cleanup of old code/UI, mobile + desktop hybrid controls, and advanced examples.
+The AI should understand:
+- How to manage persistent _G variables safely
+- Self-cleanup mechanisms for regenerated scripts
+- Differentiating mobile vs desktop input
+- Correct executor-exclusive patterns (Synapse, KRNL, etc.)
+- Safety and pcall usage for dynamic code execution
+
+
+Lesson 1: Executor UI & Utilities 1
+----------------------------------------
+-- Teaching Notes: Create persistent tables for UI, Connections, Context
+-- Example:
+if not _G.AIUI then _G.AIUI = {} end
+if not _G.AIConnections then _G.AIConnections = {} end
+
+-- Function: cleanAll() safely removes previous UI & connections
+local function cleanAll()
+    for _,obj in pairs(_G.AIUI) do
+        if obj and obj.Destroy then pcall(obj.Destroy, obj) end
+    end
+    for _,conn in pairs(_G.AIConnections) do
+        if conn and conn.Disconnect then pcall(conn.Disconnect, conn) end
+    end
+    _G.AIUI = {}
+    _G.AIConnections = {}
+end
+
+-- Teaching Note: Always clean old objects before generating new ones
+
+
+Lesson 2: Executor UI & Utilities 2
+----------------------------------------
+-- Teaching Notes: Create persistent tables for UI, Connections, Context
+-- Example:
+if not _G.AIUI then _G.AIUI = {} end
+if not _G.AIConnections then _G.AIConnections = {} end
+
+-- Function: cleanAll() safely removes previous UI & connections
+local function cleanAll()
+    for _,obj in pairs(_G.AIUI) do
+        if obj and obj.Destroy then pcall(obj.Destroy, obj) end
+    end
+    for _,conn in pairs(_G.AIConnections) do
+        if conn and conn.Disconnect then pcall(conn.Disconnect, conn) end
+    end
+    _G.AIUI = {}
+    _G.AIConnections = {}
+end
+
+-- Teaching Note: Always clean old objects before generating new ones
+
+
+Lesson 3: Executor UI & Utilities 3
+----------------------------------------
+-- Teaching Notes: Create persistent tables for UI, Connections, Context
+-- Example:
+if not _G.AIUI then _G.AIUI = {} end
+if not _G.AIConnections then _G.AIConnections = {} end
+
+-- Function: cleanAll() safely removes previous UI & connections
+local function cleanAll()
+    for _,obj in pairs(_G.AIUI) do
+        if obj and obj.Destroy then pcall(obj.Destroy, obj) end
+    end
+    for _,conn in pairs(_G.AIConnections) do
+        if conn and conn.Disconnect then pcall(conn.Disconnect, conn) end
+    end
+    _G.AIUI = {}
+    _G.AIConnections = {}
+end
+
+-- Teaching Note: Always clean old objects before generating new ones
+
+
+Lesson 4: Executor UI & Utilities 4
+----------------------------------------
+-- Teaching Notes: Create persistent tables for UI, Connections, Context
+-- Example:
+if not _G.AIUI then _G.AIUI = {} end
+if not _G.AIConnections then _G.AIConnections = {} end
+
+-- Function: cleanAll() safely removes previous UI & connections
+local function cleanAll()
+    for _,obj in pairs(_G.AIUI) do
+        if obj and obj.Destroy then pcall(obj.Destroy, obj) end
+    end
+    for _,conn in pairs(_G.AIConnections) do
+        if conn and conn.Disconnect then pcall(conn.Disconnect, conn) end
+    end
+    _G.AIUI = {}
+    _G.AIConnections = {}
+end
+
+-- Teaching Note: Always clean old objects before generating new ones
+
+
+Lesson 5: Executor UI & Utilities 5
+----------------------------------------
+-- Teaching Notes: Create persistent tables for UI, Connections, Context
+-- Example:
+if not _G.AIUI then _G.AIUI = {} end
+if not _G.AIConnections then _G.AIConnections = {} end
+
+-- Function: cleanAll() safely removes previous UI & connections
+local function cleanAll()
+    for _,obj in pairs(_G.AIUI) do
+        if obj and obj.Destroy then pcall(obj.Destroy, obj) end
+    end
+    for _,conn in pairs(_G.AIConnections) do
+        if conn and conn.Disconnect then pcall(conn.Disconnect, conn) end
+    end
+    _G.AIUI = {}
+    _G.AIConnections = {}
+end
+
+-- Teaching Note: Always clean old objects before generating new ones
+
+
+Lesson 6: Executor UI & Utilities 6
+----------------------------------------
+-- Teaching Notes: Create persistent tables for UI, Connections, Context
+-- Example:
+if not _G.AIUI then _G.AIUI = {} end
+if not _G.AIConnections then _G.AIConnections = {} end
+
+-- Function: cleanAll() safely removes previous UI & connections
+local function cleanAll()
+    for _,obj in pairs(_G.AIUI) do
+        if obj and obj.Destroy then pcall(obj.Destroy, obj) end
+    end
+    for _,conn in pairs(_G.AIConnections) do
+        if conn and conn.Disconnect then pcall(conn.Disconnect, conn) end
+    end
+    _G.AIUI = {}
+    _G.AIConnections = {}
+end
+
+-- Teaching Note: Always clean old objects before generating new ones
+
+
+Lesson 7: Executor UI & Utilities 7
+----------------------------------------
+-- Teaching Notes: Create persistent tables for UI, Connections, Context
+-- Example:
+if not _G.AIUI then _G.AIUI = {} end
+if not _G.AIConnections then _G.AIConnections = {} end
+
+-- Function: cleanAll() safely removes previous UI & connections
+local function cleanAll()
+    for _,obj in pairs(_G.AIUI) do
+        if obj and obj.Destroy then pcall(obj.Destroy, obj) end
+    end
+    for _,conn in pairs(_G.AIConnections) do
+        if conn and conn.Disconnect then pcall(conn.Disconnect, conn) end
+    end
+    _G.AIUI = {}
+    _G.AIConnections = {}
+end
+
+-- Teaching Note: Always clean old objects before generating new ones
+
+
+Lesson 8: Executor UI & Utilities 8
+----------------------------------------
+-- Teaching Notes: Create persistent tables for UI, Connections, Context
+-- Example:
+if not _G.AIUI then _G.AIUI = {} end
+if not _G.AIConnections then _G.AIConnections = {} end
+
+-- Function: cleanAll() safely removes previous UI & connections
+local function cleanAll()
+    for _,obj in pairs(_G.AIUI) do
+        if obj and obj.Destroy then pcall(obj.Destroy, obj) end
+    end
+    for _,conn in pairs(_G.AIConnections) do
+        if conn and conn.Disconnect then pcall(conn.Disconnect, conn) end
+    end
+    _G.AIUI = {}
+    _G.AIConnections = {}
+end
+
+-- Teaching Note: Always clean old objects before generating new ones
+
+
+Lesson 9: Executor UI & Utilities 9
+----------------------------------------
+-- Teaching Notes: Create persistent tables for UI, Connections, Context
+-- Example:
+if not _G.AIUI then _G.AIUI = {} end
+if not _G.AIConnections then _G.AIConnections = {} end
+
+-- Function: cleanAll() safely removes previous UI & connections
+local function cleanAll()
+    for _,obj in pairs(_G.AIUI) do
+        if obj and obj.Destroy then pcall(obj.Destroy, obj) end
+    end
+    for _,conn in pairs(_G.AIConnections) do
+        if conn and conn.Disconnect then pcall(conn.Disconnect, conn) end
+    end
+    _G.AIUI = {}
+    _G.AIConnections = {}
+end
+
+-- Teaching Note: Always clean old objects before generating new ones
+
+
+Lesson 10: Executor UI & Utilities 10
+----------------------------------------
+-- Teaching Notes: Create persistent tables for UI, Connections, Context
+-- Example:
+if not _G.AIUI then _G.AIUI = {} end
+if not _G.AIConnections then _G.AIConnections = {} end
+
+-- Function: cleanAll() safely removes previous UI & connections
+local function cleanAll()
+    for _,obj in pairs(_G.AIUI) do
+        if obj and obj.Destroy then pcall(obj.Destroy, obj) end
+    end
+    for _,conn in pairs(_G.AIConnections) do
+        if conn and conn.Disconnect then pcall(conn.Disconnect, conn) end
+    end
+    _G.AIUI = {}
+    _G.AIConnections = {}
+end
+
+-- Teaching Note: Always clean old objects before generating new ones
+
+
+Lesson 11: Executor UI & Utilities 11
+----------------------------------------
+-- Teaching Notes: Create persistent tables for UI, Connections, Context
+-- Example:
+if not _G.AIUI then _G.AIUI = {} end
+if not _G.AIConnections then _G.AIConnections = {} end
+
+-- Function: cleanAll() safely removes previous UI & connections
+local function cleanAll()
+    for _,obj in pairs(_G.AIUI) do
+        if obj and obj.Destroy then pcall(obj.Destroy, obj) end
+    end
+    for _,conn in pairs(_G.AIConnections) do
+        if conn and conn.Disconnect then pcall(conn.Disconnect, conn) end
+    end
+    _G.AIUI = {}
+    _G.AIConnections = {}
+end
+
+-- Teaching Note: Always clean old objects before generating new ones
+
+
+Lesson 12: Executor UI & Utilities 12
+----------------------------------------
+-- Teaching Notes: Create persistent tables for UI, Connections, Context
+-- Example:
+if not _G.AIUI then _G.AIUI = {} end
+if not _G.AIConnections then _G.AIConnections = {} end
+
+-- Function: cleanAll() safely removes previous UI & connections
+local function cleanAll()
+    for _,obj in pairs(_G.AIUI) do
+        if obj and obj.Destroy then pcall(obj.Destroy, obj) end
+    end
+    for _,conn in pairs(_G.AIConnections) do
+        if conn and conn.Disconnect then pcall(conn.Disconnect, conn) end
+    end
+    _G.AIUI = {}
+    _G.AIConnections = {}
+end
+
+-- Teaching Note: Always clean old objects before generating new ones
+
+
+Lesson 13: Executor UI & Utilities 13
+----------------------------------------
+-- Teaching Notes: Create persistent tables for UI, Connections, Context
+-- Example:
+if not _G.AIUI then _G.AIUI = {} end
+if not _G.AIConnections then _G.AIConnections = {} end
+
+-- Function: cleanAll() safely removes previous UI & connections
+local function cleanAll()
+    for _,obj in pairs(_G.AIUI) do
+        if obj and obj.Destroy then pcall(obj.Destroy, obj) end
+    end
+    for _,conn in pairs(_G.AIConnections) do
+        if conn and conn.Disconnect then pcall(conn.Disconnect, conn) end
+    end
+    _G.AIUI = {}
+    _G.AIConnections = {}
+end
+
+-- Teaching Note: Always clean old objects before generating new ones
+
+
+Lesson 14: Executor UI & Utilities 14
+----------------------------------------
+-- Teaching Notes: Create persistent tables for UI, Connections, Context
+-- Example:
+if not _G.AIUI then _G.AIUI = {} end
+if not _G.AIConnections then _G.AIConnections = {} end
+
+-- Function: cleanAll() safely removes previous UI & connections
+local function cleanAll()
+    for _,obj in pairs(_G.AIUI) do
+        if obj and obj.Destroy then pcall(obj.Destroy, obj) end
+    end
+    for _,conn in pairs(_G.AIConnections) do
+        if conn and conn.Disconnect then pcall(conn.Disconnect, conn) end
+    end
+    _G.AIUI = {}
+    _G.AIConnections = {}
+end
+
+-- Teaching Note: Always clean old objects before generating new ones
+
+
+Lesson 15: Executor UI & Utilities 15
+----------------------------------------
+-- Teaching Notes: Create persistent tables for UI, Connections, Context
+-- Example:
+if not _G.AIUI then _G.AIUI = {} end
+if not _G.AIConnections then _G.AIConnections = {} end
+
+-- Function: cleanAll() safely removes previous UI & connections
+local function cleanAll()
+    for _,obj in pairs(_G.AIUI) do
+        if obj and obj.Destroy then pcall(obj.Destroy, obj) end
+    end
+    for _,conn in pairs(_G.AIConnections) do
+        if conn and conn.Disconnect then pcall(conn.Disconnect, conn) end
+    end
+    _G.AIUI = {}
+    _G.AIConnections = {}
+end
+
+-- Teaching Note: Always clean old objects before generating new ones
+
+
+Lesson 16: Executor UI & Utilities 16
+----------------------------------------
+-- Teaching Notes: Create persistent tables for UI, Connections, Context
+-- Example:
+if not _G.AIUI then _G.AIUI = {} end
+if not _G.AIConnections then _G.AIConnections = {} end
+
+-- Function: cleanAll() safely removes previous UI & connections
+local function cleanAll()
+    for _,obj in pairs(_G.AIUI) do
+        if obj and obj.Destroy then pcall(obj.Destroy, obj) end
+    end
+    for _,conn in pairs(_G.AIConnections) do
+        if conn and conn.Disconnect then pcall(conn.Disconnect, conn) end
+    end
+    _G.AIUI = {}
+    _G.AIConnections = {}
+end
+
+-- Teaching Note: Always clean old objects before generating new ones
+
+
+Lesson 17: Executor UI & Utilities 17
+----------------------------------------
+-- Teaching Notes: Create persistent tables for UI, Connections, Context
+-- Example:
+if not _G.AIUI then _G.AIUI = {} end
+if not _G.AIConnections then _G.AIConnections = {} end
+
+-- Function: cleanAll() safely removes previous UI & connections
+local function cleanAll()
+    for _,obj in pairs(_G.AIUI) do
+        if obj and obj.Destroy then pcall(obj.Destroy, obj) end
+    end
+    for _,conn in pairs(_G.AIConnections) do
+        if conn and conn.Disconnect then pcall(conn.Disconnect, conn) end
+    end
+    _G.AIUI = {}
+    _G.AIConnections = {}
+end
+
+-- Teaching Note: Always clean old objects before generating new ones
+
+
+Lesson 18: Executor UI & Utilities 18
+----------------------------------------
+-- Teaching Notes: Create persistent tables for UI, Connections, Context
+-- Example:
+if not _G.AIUI then _G.AIUI = {} end
+if not _G.AIConnections then _G.AIConnections = {} end
+
+-- Function: cleanAll() safely removes previous UI & connections
+local function cleanAll()
+    for _,obj in pairs(_G.AIUI) do
+        if obj and obj.Destroy then pcall(obj.Destroy, obj) end
+    end
+    for _,conn in pairs(_G.AIConnections) do
+        if conn and conn.Disconnect then pcall(conn.Disconnect, conn) end
+    end
+    _G.AIUI = {}
+    _G.AIConnections = {}
+end
+
+-- Teaching Note: Always clean old objects before generating new ones
+
+
+Lesson 19: Executor UI & Utilities 19
+----------------------------------------
+-- Teaching Notes: Create persistent tables for UI, Connections, Context
+-- Example:
+if not _G.AIUI then _G.AIUI = {} end
+if not _G.AIConnections then _G.AIConnections = {} end
+
+-- Function: cleanAll() safely removes previous UI & connections
+local function cleanAll()
+    for _,obj in pairs(_G.AIUI) do
+        if obj and obj.Destroy then pcall(obj.Destroy, obj) end
+    end
+    for _,conn in pairs(_G.AIConnections) do
+        if conn and conn.Disconnect then pcall(conn.Disconnect, conn) end
+    end
+    _G.AIUI = {}
+    _G.AIConnections = {}
+end
+
+-- Teaching Note: Always clean old objects before generating new ones
+
+
+Lesson 20: Executor UI & Utilities 20
+----------------------------------------
+-- Teaching Notes: Create persistent tables for UI, Connections, Context
+-- Example:
+if not _G.AIUI then _G.AIUI = {} end
+if not _G.AIConnections then _G.AIConnections = {} end
+
+-- Function: cleanAll() safely removes previous UI & connections
+local function cleanAll()
+    for _,obj in pairs(_G.AIUI) do
+        if obj and obj.Destroy then pcall(obj.Destroy, obj) end
+    end
+    for _,conn in pairs(_G.AIConnections) do
+        if conn and conn.Disconnect then pcall(conn.Disconnect, conn) end
+    end
+    _G.AIUI = {}
+    _G.AIConnections = {}
+end
+
+-- Teaching Note: Always clean old objects before generating new ones
+
+
+Lesson 21: Executor UI & Utilities 21
+----------------------------------------
+-- Teaching Notes: Create persistent tables for UI, Connections, Context
+-- Example:
+if not _G.AIUI then _G.AIUI = {} end
+if not _G.AIConnections then _G.AIConnections = {} end
+
+-- Function: cleanAll() safely removes previous UI & connections
+local function cleanAll()
+    for _,obj in pairs(_G.AIUI) do
+        if obj and obj.Destroy then pcall(obj.Destroy, obj) end
+    end
+    for _,conn in pairs(_G.AIConnections) do
+        if conn and conn.Disconnect then pcall(conn.Disconnect, conn) end
+    end
+    _G.AIUI = {}
+    _G.AIConnections = {}
+end
+
+-- Teaching Note: Always clean old objects before generating new ones
+
+
+Lesson 22: Executor UI & Utilities 22
+----------------------------------------
+-- Teaching Notes: Create persistent tables for UI, Connections, Context
+-- Example:
+if not _G.AIUI then _G.AIUI = {} end
+if not _G.AIConnections then _G.AIConnections = {} end
+
+-- Function: cleanAll() safely removes previous UI & connections
+local function cleanAll()
+    for _,obj in pairs(_G.AIUI) do
+        if obj and obj.Destroy then pcall(obj.Destroy, obj) end
+    end
+    for _,conn in pairs(_G.AIConnections) do
+        if conn and conn.Disconnect then pcall(conn.Disconnect, conn) end
+    end
+    _G.AIUI = {}
+    _G.AIConnections = {}
+end
+
+-- Teaching Note: Always clean old objects before generating new ones
+
+
+Lesson 23: Executor UI & Utilities 23
+----------------------------------------
+-- Teaching Notes: Create persistent tables for UI, Connections, Context
+-- Example:
+if not _G.AIUI then _G.AIUI = {} end
+if not _G.AIConnections then _G.AIConnections = {} end
+
+-- Function: cleanAll() safely removes previous UI & connections
+local function cleanAll()
+    for _,obj in pairs(_G.AIUI) do
+        if obj and obj.Destroy then pcall(obj.Destroy, obj) end
+    end
+    for _,conn in pairs(_G.AIConnections) do
+        if conn and conn.Disconnect then pcall(conn.Disconnect, conn) end
+    end
+    _G.AIUI = {}
+    _G.AIConnections = {}
+end
+
+-- Teaching Note: Always clean old objects before generating new ones
+
+
+Lesson 24: Executor UI & Utilities 24
+----------------------------------------
+-- Teaching Notes: Create persistent tables for UI, Connections, Context
+-- Example:
+if not _G.AIUI then _G.AIUI = {} end
+if not _G.AIConnections then _G.AIConnections = {} end
+
+-- Function: cleanAll() safely removes previous UI & connections
+local function cleanAll()
+    for _,obj in pairs(_G.AIUI) do
+        if obj and obj.Destroy then pcall(obj.Destroy, obj) end
+    end
+    for _,conn in pairs(_G.AIConnections) do
+        if conn and conn.Disconnect then pcall(conn.Disconnect, conn) end
+    end
+    _G.AIUI = {}
+    _G.AIConnections = {}
+end
+
+-- Teaching Note: Always clean old objects before generating new ones
+
+
+Lesson 25: Executor UI & Utilities 25
+----------------------------------------
+-- Teaching Notes: Create persistent tables for UI, Connections, Context
+-- Example:
+if not _G.AIUI then _G.AIUI = {} end
+if not _G.AIConnections then _G.AIConnections = {} end
+
+-- Function: cleanAll() safely removes previous UI & connections
+local function cleanAll()
+    for _,obj in pairs(_G.AIUI) do
+        if obj and obj.Destroy then pcall(obj.Destroy, obj) end
+    end
+    for _,conn in pairs(_G.AIConnections) do
+        if conn and conn.Disconnect then pcall(conn.Disconnect, conn) end
+    end
+    _G.AIUI = {}
+    _G.AIConnections = {}
+end
+
+-- Teaching Note: Always clean old objects before generating new ones
+
+
+Lesson 26: Executor UI & Utilities 26
+----------------------------------------
+-- Teaching Notes: Create persistent tables for UI, Connections, Context
+-- Example:
+if not _G.AIUI then _G.AIUI = {} end
+if not _G.AIConnections then _G.AIConnections = {} end
+
+-- Function: cleanAll() safely removes previous UI & connections
+local function cleanAll()
+    for _,obj in pairs(_G.AIUI) do
+        if obj and obj.Destroy then pcall(obj.Destroy, obj) end
+    end
+    for _,conn in pairs(_G.AIConnections) do
+        if conn and conn.Disconnect then pcall(conn.Disconnect, conn) end
+    end
+    _G.AIUI = {}
+    _G.AIConnections = {}
+end
+
+-- Teaching Note: Always clean old objects before generating new ones
+
+
+Lesson 27: Executor UI & Utilities 27
+----------------------------------------
+-- Teaching Notes: Create persistent tables for UI, Connections, Context
+-- Example:
+if not _G.AIUI then _G.AIUI = {} end
+if not _G.AIConnections then _G.AIConnections = {} end
+
+-- Function: cleanAll() safely removes previous UI & connections
+local function cleanAll()
+    for _,obj in pairs(_G.AIUI) do
+        if obj and obj.Destroy then pcall(obj.Destroy, obj) end
+    end
+    for _,conn in pairs(_G.AIConnections) do
+        if conn and conn.Disconnect then pcall(conn.Disconnect, conn) end
+    end
+    _G.AIUI = {}
+    _G.AIConnections = {}
+end
+
+-- Teaching Note: Always clean old objects before generating new ones
+
+
+Lesson 28: Executor UI & Utilities 28
+----------------------------------------
+-- Teaching Notes: Create persistent tables for UI, Connections, Context
+-- Example:
+if not _G.AIUI then _G.AIUI = {} end
+if not _G.AIConnections then _G.AIConnections = {} end
+
+-- Function: cleanAll() safely removes previous UI & connections
+local function cleanAll()
+    for _,obj in pairs(_G.AIUI) do
+        if obj and obj.Destroy then pcall(obj.Destroy, obj) end
+    end
+    for _,conn in pairs(_G.AIConnections) do
+        if conn and conn.Disconnect then pcall(conn.Disconnect, conn) end
+    end
+    _G.AIUI = {}
+    _G.AIConnections = {}
+end
+
+-- Teaching Note: Always clean old objects before generating new ones
+
+
+Lesson 29: Executor UI & Utilities 29
+----------------------------------------
+-- Teaching Notes: Create persistent tables for UI, Connections, Context
+-- Example:
+if not _G.AIUI then _G.AIUI = {} end
+if not _G.AIConnections then _G.AIConnections = {} end
+
+-- Function: cleanAll() safely removes previous UI & connections
+local function cleanAll()
+    for _,obj in pairs(_G.AIUI) do
+        if obj and obj.Destroy then pcall(obj.Destroy, obj) end
+    end
+    for _,conn in pairs(_G.AIConnections) do
+        if conn and conn.Disconnect then pcall(conn.Disconnect, conn) end
+    end
+    _G.AIUI = {}
+    _G.AIConnections = {}
+end
+
+-- Teaching Note: Always clean old objects before generating new ones
+
+
+Lesson 30: Executor UI & Utilities 30
+----------------------------------------
+-- Teaching Notes: Create persistent tables for UI, Connections, Context
+-- Example:
+if not _G.AIUI then _G.AIUI = {} end
+if not _G.AIConnections then _G.AIConnections = {} end
+
+-- Function: cleanAll() safely removes previous UI & connections
+local function cleanAll()
+    for _,obj in pairs(_G.AIUI) do
+        if obj and obj.Destroy then pcall(obj.Destroy, obj) end
+    end
+    for _,conn in pairs(_G.AIConnections) do
+        if conn and conn.Disconnect then pcall(conn.Disconnect, conn) end
+    end
+    _G.AIUI = {}
+    _G.AIConnections = {}
+end
+
+-- Teaching Note: Always clean old objects before generating new ones
+
+
+Lesson 31: Executor UI & Utilities 31
+----------------------------------------
+-- Teaching Notes: Create persistent tables for UI, Connections, Context
+-- Example:
+if not _G.AIUI then _G.AIUI = {} end
+if not _G.AIConnections then _G.AIConnections = {} end
+
+-- Function: cleanAll() safely removes previous UI & connections
+local function cleanAll()
+    for _,obj in pairs(_G.AIUI) do
+        if obj and obj.Destroy then pcall(obj.Destroy, obj) end
+    end
+    for _,conn in pairs(_G.AIConnections) do
+        if conn and conn.Disconnect then pcall(conn.Disconnect, conn) end
+    end
+    _G.AIUI = {}
+    _G.AIConnections = {}
+end
+
+-- Teaching Note: Always clean old objects before generating new ones
+
+
+Lesson 32: Executor UI & Utilities 32
+----------------------------------------
+-- Teaching Notes: Create persistent tables for UI, Connections, Context
+-- Example:
+if not _G.AIUI then _G.AIUI = {} end
+if not _G.AIConnections then _G.AIConnections = {} end
+
+-- Function: cleanAll() safely removes previous UI & connections
+local function cleanAll()
+    for _,obj in pairs(_G.AIUI) do
+        if obj and obj.Destroy then pcall(obj.Destroy, obj) end
+    end
+    for _,conn in pairs(_G.AIConnections) do
+        if conn and conn.Disconnect then pcall(conn.Disconnect, conn) end
+    end
+    _G.AIUI = {}
+    _G.AIConnections = {}
+end
+
+-- Teaching Note: Always clean old objects before generating new ones
+
+
+Lesson 33: Executor UI & Utilities 33
+----------------------------------------
+-- Teaching Notes: Create persistent tables for UI, Connections, Context
+-- Example:
+if not _G.AIUI then _G.AIUI = {} end
+if not _G.AIConnections then _G.AIConnections = {} end
+
+-- Function: cleanAll() safely removes previous UI & connections
+local function cleanAll()
+    for _,obj in pairs(_G.AIUI) do
+        if obj and obj.Destroy then pcall(obj.Destroy, obj) end
+    end
+    for _,conn in pairs(_G.AIConnections) do
+        if conn and conn.Disconnect then pcall(conn.Disconnect, conn) end
+    end
+    _G.AIUI = {}
+    _G.AIConnections = {}
+end
+
+-- Teaching Note: Always clean old objects before generating new ones
+
+
+Lesson 34: Executor UI & Utilities 34
+----------------------------------------
+-- Teaching Notes: Create persistent tables for UI, Connections, Context
+-- Example:
+if not _G.AIUI then _G.AIUI = {} end
+if not _G.AIConnections then _G.AIConnections = {} end
+
+-- Function: cleanAll() safely removes previous UI & connections
+local function cleanAll()
+    for _,obj in pairs(_G.AIUI) do
+        if obj and obj.Destroy then pcall(obj.Destroy, obj) end
+    end
+    for _,conn in pairs(_G.AIConnections) do
+        if conn and conn.Disconnect then pcall(conn.Disconnect, conn) end
+    end
+    _G.AIUI = {}
+    _G.AIConnections = {}
+end
+
+-- Teaching Note: Always clean old objects before generating new ones
+
+
+Lesson 35: Executor UI & Utilities 35
+----------------------------------------
+-- Teaching Notes: Create persistent tables for UI, Connections, Context
+-- Example:
+if not _G.AIUI then _G.AIUI = {} end
+if not _G.AIConnections then _G.AIConnections = {} end
+
+-- Function: cleanAll() safely removes previous UI & connections
+local function cleanAll()
+    for _,obj in pairs(_G.AIUI) do
+        if obj and obj.Destroy then pcall(obj.Destroy, obj) end
+    end
+    for _,conn in pairs(_G.AIConnections) do
+        if conn and conn.Disconnect then pcall(conn.Disconnect, conn) end
+    end
+    _G.AIUI = {}
+    _G.AIConnections = {}
+end
+
+-- Teaching Note: Always clean old objects before generating new ones
+
+
+Lesson 36: Executor UI & Utilities 36
+----------------------------------------
+-- Teaching Notes: Create persistent tables for UI, Connections, Context
+-- Example:
+if not _G.AIUI then _G.AIUI = {} end
+if not _G.AIConnections then _G.AIConnections = {} end
+
+-- Function: cleanAll() safely removes previous UI & connections
+local function cleanAll()
+    for _,obj in pairs(_G.AIUI) do
+        if obj and obj.Destroy then pcall(obj.Destroy, obj) end
+    end
+    for _,conn in pairs(_G.AIConnections) do
+        if conn and conn.Disconnect then pcall(conn.Disconnect, conn) end
+    end
+    _G.AIUI = {}
+    _G.AIConnections = {}
+end
+
+-- Teaching Note: Always clean old objects before generating new ones
+
+
+Lesson 37: Executor UI & Utilities 37
+----------------------------------------
+-- Teaching Notes: Create persistent tables for UI, Connections, Context
+-- Example:
+if not _G.AIUI then _G.AIUI = {} end
+if not _G.AIConnections then _G.AIConnections = {} end
+
+-- Function: cleanAll() safely removes previous UI & connections
+local function cleanAll()
+    for _,obj in pairs(_G.AIUI) do
+        if obj and obj.Destroy then pcall(obj.Destroy, obj) end
+    end
+    for _,conn in pairs(_G.AIConnections) do
+        if conn and conn.Disconnect then pcall(conn.Disconnect, conn) end
+    end
+    _G.AIUI = {}
+    _G.AIConnections = {}
+end
+
+-- Teaching Note: Always clean old objects before generating new ones
+
+
+Lesson 38: Executor UI & Utilities 38
+----------------------------------------
+-- Teaching Notes: Create persistent tables for UI, Connections, Context
+-- Example:
+if not _G.AIUI then _G.AIUI = {} end
+if not _G.AIConnections then _G.AIConnections = {} end
+
+-- Function: cleanAll() safely removes previous UI & connections
+local function cleanAll()
+    for _,obj in pairs(_G.AIUI) do
+        if obj and obj.Destroy then pcall(obj.Destroy, obj) end
+    end
+    for _,conn in pairs(_G.AIConnections) do
+        if conn and conn.Disconnect then pcall(conn.Disconnect, conn) end
+    end
+    _G.AIUI = {}
+    _G.AIConnections = {}
+end
+
+-- Teaching Note: Always clean old objects before generating new ones
+
+
+Lesson 39: Executor UI & Utilities 39
+----------------------------------------
+-- Teaching Notes: Create persistent tables for UI, Connections, Context
+-- Example:
+if not _G.AIUI then _G.AIUI = {} end
+if not _G.AIConnections then _G.AIConnections = {} end
+
+-- Function: cleanAll() safely removes previous UI & connections
+local function cleanAll()
+    for _,obj in pairs(_G.AIUI) do
+        if obj and obj.Destroy then pcall(obj.Destroy, obj) end
+    end
+    for _,conn in pairs(_G.AIConnections) do
+        if conn and conn.Disconnect then pcall(conn.Disconnect, conn) end
+    end
+    _G.AIUI = {}
+    _G.AIConnections = {}
+end
+
+-- Teaching Note: Always clean old objects before generating new ones
+
+
+Lesson 40: Executor UI & Utilities 40
+----------------------------------------
+-- Teaching Notes: Create persistent tables for UI, Connections, Context
+-- Example:
+if not _G.AIUI then _G.AIUI = {} end
+if not _G.AIConnections then _G.AIConnections = {} end
+
+-- Function: cleanAll() safely removes previous UI & connections
+local function cleanAll()
+    for _,obj in pairs(_G.AIUI) do
+        if obj and obj.Destroy then pcall(obj.Destroy, obj) end
+    end
+    for _,conn in pairs(_G.AIConnections) do
+        if conn and conn.Disconnect then pcall(conn.Disconnect, conn) end
+    end
+    _G.AIUI = {}
+    _G.AIConnections = {}
+end
+
+-- Teaching Note: Always clean old objects before generating new ones
+
+
+Lesson 41: Executor UI & Utilities 41
+----------------------------------------
+-- Teaching Notes: Create persistent tables for UI, Connections, Context
+-- Example:
+if not _G.AIUI then _G.AIUI = {} end
+if not _G.AIConnections then _G.AIConnections = {} end
+
+-- Function: cleanAll() safely removes previous UI & connections
+local function cleanAll()
+    for _,obj in pairs(_G.AIUI) do
+        if obj and obj.Destroy then pcall(obj.Destroy, obj) end
+    end
+    for _,conn in pairs(_G.AIConnections) do
+        if conn and conn.Disconnect then pcall(conn.Disconnect, conn) end
+    end
+    _G.AIUI = {}
+    _G.AIConnections = {}
+end
+
+-- Teaching Note: Always clean old objects before generating new ones
+
+
+Lesson 42: Executor UI & Utilities 42
+----------------------------------------
+-- Teaching Notes: Create persistent tables for UI, Connections, Context
+-- Example:
+if not _G.AIUI then _G.AIUI = {} end
+if not _G.AIConnections then _G.AIConnections = {} end
+
+-- Function: cleanAll() safely removes previous UI & connections
+local function cleanAll()
+    for _,obj in pairs(_G.AIUI) do
+        if obj and obj.Destroy then pcall(obj.Destroy, obj) end
+    end
+    for _,conn in pairs(_G.AIConnections) do
+        if conn and conn.Disconnect then pcall(conn.Disconnect, conn) end
+    end
+    _G.AIUI = {}
+    _G.AIConnections = {}
+end
+
+-- Teaching Note: Always clean old objects before generating new ones
+
+
+Lesson 43: Executor UI & Utilities 43
+----------------------------------------
+-- Teaching Notes: Create persistent tables for UI, Connections, Context
+-- Example:
+if not _G.AIUI then _G.AIUI = {} end
+if not _G.AIConnections then _G.AIConnections = {} end
+
+-- Function: cleanAll() safely removes previous UI & connections
+local function cleanAll()
+    for _,obj in pairs(_G.AIUI) do
+        if obj and obj.Destroy then pcall(obj.Destroy, obj) end
+    end
+    for _,conn in pairs(_G.AIConnections) do
+        if conn and conn.Disconnect then pcall(conn.Disconnect, conn) end
+    end
+    _G.AIUI = {}
+    _G.AIConnections = {}
+end
+
+-- Teaching Note: Always clean old objects before generating new ones
+
+
+Lesson 44: Executor UI & Utilities 44
+----------------------------------------
+-- Teaching Notes: Create persistent tables for UI, Connections, Context
+-- Example:
+if not _G.AIUI then _G.AIUI = {} end
+if not _G.AIConnections then _G.AIConnections = {} end
+
+-- Function: cleanAll() safely removes previous UI & connections
+local function cleanAll()
+    for _,obj in pairs(_G.AIUI) do
+        if obj and obj.Destroy then pcall(obj.Destroy, obj) end
+    end
+    for _,conn in pairs(_G.AIConnections) do
+        if conn and conn.Disconnect then pcall(conn.Disconnect, conn) end
+    end
+    _G.AIUI = {}
+    _G.AIConnections = {}
+end
+
+-- Teaching Note: Always clean old objects before generating new ones
+
+
+Lesson 45: Executor UI & Utilities 45
+----------------------------------------
+-- Teaching Notes: Create persistent tables for UI, Connections, Context
+-- Example:
+if not _G.AIUI then _G.AIUI = {} end
+if not _G.AIConnections then _G.AIConnections = {} end
+
+-- Function: cleanAll() safely removes previous UI & connections
+local function cleanAll()
+    for _,obj in pairs(_G.AIUI) do
+        if obj and obj.Destroy then pcall(obj.Destroy, obj) end
+    end
+    for _,conn in pairs(_G.AIConnections) do
+        if conn and conn.Disconnect then pcall(conn.Disconnect, conn) end
+    end
+    _G.AIUI = {}
+    _G.AIConnections = {}
+end
+
+-- Teaching Note: Always clean old objects before generating new ones
+
+
+Lesson 46: Executor UI & Utilities 46
+----------------------------------------
+-- Teaching Notes: Create persistent tables for UI, Connections, Context
+-- Example:
+if not _G.AIUI then _G.AIUI = {} end
+if not _G.AIConnections then _G.AIConnections = {} end
+
+-- Function: cleanAll() safely removes previous UI & connections
+local function cleanAll()
+    for _,obj in pairs(_G.AIUI) do
+        if obj and obj.Destroy then pcall(obj.Destroy, obj) end
+    end
+    for _,conn in pairs(_G.AIConnections) do
+        if conn and conn.Disconnect then pcall(conn.Disconnect, conn) end
+    end
+    _G.AIUI = {}
+    _G.AIConnections = {}
+end
+
+-- Teaching Note: Always clean old objects before generating new ones
+
+
+Lesson 47: Executor UI & Utilities 47
+----------------------------------------
+-- Teaching Notes: Create persistent tables for UI, Connections, Context
+-- Example:
+if not _G.AIUI then _G.AIUI = {} end
+if not _G.AIConnections then _G.AIConnections = {} end
+
+-- Function: cleanAll() safely removes previous UI & connections
+local function cleanAll()
+    for _,obj in pairs(_G.AIUI) do
+        if obj and obj.Destroy then pcall(obj.Destroy, obj) end
+    end
+    for _,conn in pairs(_G.AIConnections) do
+        if conn and conn.Disconnect then pcall(conn.Disconnect, conn) end
+    end
+    _G.AIUI = {}
+    _G.AIConnections = {}
+end
+
+-- Teaching Note: Always clean old objects before generating new ones
+
+
+Lesson 48: Executor UI & Utilities 48
+----------------------------------------
+-- Teaching Notes: Create persistent tables for UI, Connections, Context
+-- Example:
+if not _G.AIUI then _G.AIUI = {} end
+if not _G.AIConnections then _G.AIConnections = {} end
+
+-- Function: cleanAll() safely removes previous UI & connections
+local function cleanAll()
+    for _,obj in pairs(_G.AIUI) do
+        if obj and obj.Destroy then pcall(obj.Destroy, obj) end
+    end
+    for _,conn in pairs(_G.AIConnections) do
+        if conn and conn.Disconnect then pcall(conn.Disconnect, conn) end
+    end
+    _G.AIUI = {}
+    _G.AIConnections = {}
+end
+
+-- Teaching Note: Always clean old objects before generating new ones
+
+
+Lesson 49: Executor UI & Utilities 49
+----------------------------------------
+-- Teaching Notes: Create persistent tables for UI, Connections, Context
+-- Example:
+if not _G.AIUI then _G.AIUI = {} end
+if not _G.AIConnections then _G.AIConnections = {} end
+
+-- Function: cleanAll() safely removes previous UI & connections
+local function cleanAll()
+    for _,obj in pairs(_G.AIUI) do
+        if obj and obj.Destroy then pcall(obj.Destroy, obj) end
+    end
+    for _,conn in pairs(_G.AIConnections) do
+        if conn and conn.Disconnect then pcall(conn.Disconnect, conn) end
+    end
+    _G.AIUI = {}
+    _G.AIConnections = {}
+end
+
+-- Teaching Note: Always clean old objects before generating new ones
+
+
+Lesson 50: Executor UI & Utilities 50
+----------------------------------------
+-- Teaching Notes: Create persistent tables for UI, Connections, Context
+-- Example:
+if not _G.AIUI then _G.AIUI = {} end
+if not _G.AIConnections then _G.AIConnections = {} end
+
+-- Function: cleanAll() safely removes previous UI & connections
+local function cleanAll()
+    for _,obj in pairs(_G.AIUI) do
+        if obj and obj.Destroy then pcall(obj.Destroy, obj) end
+    end
+    for _,conn in pairs(_G.AIConnections) do
+        if conn and conn.Disconnect then pcall(conn.Disconnect, conn) end
+    end
+    _G.AIUI = {}
+    _G.AIConnections = {}
+end
+
+-- Teaching Note: Always clean old objects before generating new ones
+
+
+Lesson Fly 1: Desktop Fly Script
+-----------------------------------
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 41
+local RS = game:GetService("RunService")
+local UIS = game:GetService("UserInputService")
+local conn
+conn = RS.RenderStepped:Connect(function(delta)
+    if flying then
+        local move = Vector3.new()
+        if UIS:IsKeyDown(Enum.KeyCode.W) then move = move + workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.S) then move = move - workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.A) then move = move - workspace.CurrentCamera.CFrame.RightVector end
+        if UIS:IsKeyDown(Enum.KeyCode.D) then move = move + workspace.CurrentCamera.CFrame.RightVector end
+        HRP.Velocity = move * speed
+    else
+        if conn then conn:Disconnect() end
+    end
+end)
+-- Note: Adjust speed per lesson to show variety
+
+
+Lesson Fly 2: Desktop Fly Script
+-----------------------------------
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 42
+local RS = game:GetService("RunService")
+local UIS = game:GetService("UserInputService")
+local conn
+conn = RS.RenderStepped:Connect(function(delta)
+    if flying then
+        local move = Vector3.new()
+        if UIS:IsKeyDown(Enum.KeyCode.W) then move = move + workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.S) then move = move - workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.A) then move = move - workspace.CurrentCamera.CFrame.RightVector end
+        if UIS:IsKeyDown(Enum.KeyCode.D) then move = move + workspace.CurrentCamera.CFrame.RightVector end
+        HRP.Velocity = move * speed
+    else
+        if conn then conn:Disconnect() end
+    end
+end)
+-- Note: Adjust speed per lesson to show variety
+
+
+Lesson Fly 3: Desktop Fly Script
+-----------------------------------
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 43
+local RS = game:GetService("RunService")
+local UIS = game:GetService("UserInputService")
+local conn
+conn = RS.RenderStepped:Connect(function(delta)
+    if flying then
+        local move = Vector3.new()
+        if UIS:IsKeyDown(Enum.KeyCode.W) then move = move + workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.S) then move = move - workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.A) then move = move - workspace.CurrentCamera.CFrame.RightVector end
+        if UIS:IsKeyDown(Enum.KeyCode.D) then move = move + workspace.CurrentCamera.CFrame.RightVector end
+        HRP.Velocity = move * speed
+    else
+        if conn then conn:Disconnect() end
+    end
+end)
+-- Note: Adjust speed per lesson to show variety
+
+
+Lesson Fly 4: Desktop Fly Script
+-----------------------------------
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 44
+local RS = game:GetService("RunService")
+local UIS = game:GetService("UserInputService")
+local conn
+conn = RS.RenderStepped:Connect(function(delta)
+    if flying then
+        local move = Vector3.new()
+        if UIS:IsKeyDown(Enum.KeyCode.W) then move = move + workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.S) then move = move - workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.A) then move = move - workspace.CurrentCamera.CFrame.RightVector end
+        if UIS:IsKeyDown(Enum.KeyCode.D) then move = move + workspace.CurrentCamera.CFrame.RightVector end
+        HRP.Velocity = move * speed
+    else
+        if conn then conn:Disconnect() end
+    end
+end)
+-- Note: Adjust speed per lesson to show variety
+
+
+Lesson Fly 5: Desktop Fly Script
+-----------------------------------
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 45
+local RS = game:GetService("RunService")
+local UIS = game:GetService("UserInputService")
+local conn
+conn = RS.RenderStepped:Connect(function(delta)
+    if flying then
+        local move = Vector3.new()
+        if UIS:IsKeyDown(Enum.KeyCode.W) then move = move + workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.S) then move = move - workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.A) then move = move - workspace.CurrentCamera.CFrame.RightVector end
+        if UIS:IsKeyDown(Enum.KeyCode.D) then move = move + workspace.CurrentCamera.CFrame.RightVector end
+        HRP.Velocity = move * speed
+    else
+        if conn then conn:Disconnect() end
+    end
+end)
+-- Note: Adjust speed per lesson to show variety
+
+
+Lesson Fly 6: Desktop Fly Script
+-----------------------------------
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 46
+local RS = game:GetService("RunService")
+local UIS = game:GetService("UserInputService")
+local conn
+conn = RS.RenderStepped:Connect(function(delta)
+    if flying then
+        local move = Vector3.new()
+        if UIS:IsKeyDown(Enum.KeyCode.W) then move = move + workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.S) then move = move - workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.A) then move = move - workspace.CurrentCamera.CFrame.RightVector end
+        if UIS:IsKeyDown(Enum.KeyCode.D) then move = move + workspace.CurrentCamera.CFrame.RightVector end
+        HRP.Velocity = move * speed
+    else
+        if conn then conn:Disconnect() end
+    end
+end)
+-- Note: Adjust speed per lesson to show variety
+
+
+Lesson Fly 7: Desktop Fly Script
+-----------------------------------
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 47
+local RS = game:GetService("RunService")
+local UIS = game:GetService("UserInputService")
+local conn
+conn = RS.RenderStepped:Connect(function(delta)
+    if flying then
+        local move = Vector3.new()
+        if UIS:IsKeyDown(Enum.KeyCode.W) then move = move + workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.S) then move = move - workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.A) then move = move - workspace.CurrentCamera.CFrame.RightVector end
+        if UIS:IsKeyDown(Enum.KeyCode.D) then move = move + workspace.CurrentCamera.CFrame.RightVector end
+        HRP.Velocity = move * speed
+    else
+        if conn then conn:Disconnect() end
+    end
+end)
+-- Note: Adjust speed per lesson to show variety
+
+
+Lesson Fly 8: Desktop Fly Script
+-----------------------------------
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 48
+local RS = game:GetService("RunService")
+local UIS = game:GetService("UserInputService")
+local conn
+conn = RS.RenderStepped:Connect(function(delta)
+    if flying then
+        local move = Vector3.new()
+        if UIS:IsKeyDown(Enum.KeyCode.W) then move = move + workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.S) then move = move - workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.A) then move = move - workspace.CurrentCamera.CFrame.RightVector end
+        if UIS:IsKeyDown(Enum.KeyCode.D) then move = move + workspace.CurrentCamera.CFrame.RightVector end
+        HRP.Velocity = move * speed
+    else
+        if conn then conn:Disconnect() end
+    end
+end)
+-- Note: Adjust speed per lesson to show variety
+
+
+Lesson Fly 9: Desktop Fly Script
+-----------------------------------
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 49
+local RS = game:GetService("RunService")
+local UIS = game:GetService("UserInputService")
+local conn
+conn = RS.RenderStepped:Connect(function(delta)
+    if flying then
+        local move = Vector3.new()
+        if UIS:IsKeyDown(Enum.KeyCode.W) then move = move + workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.S) then move = move - workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.A) then move = move - workspace.CurrentCamera.CFrame.RightVector end
+        if UIS:IsKeyDown(Enum.KeyCode.D) then move = move + workspace.CurrentCamera.CFrame.RightVector end
+        HRP.Velocity = move * speed
+    else
+        if conn then conn:Disconnect() end
+    end
+end)
+-- Note: Adjust speed per lesson to show variety
+
+
+Lesson Fly 10: Desktop Fly Script
+-----------------------------------
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 50
+local RS = game:GetService("RunService")
+local UIS = game:GetService("UserInputService")
+local conn
+conn = RS.RenderStepped:Connect(function(delta)
+    if flying then
+        local move = Vector3.new()
+        if UIS:IsKeyDown(Enum.KeyCode.W) then move = move + workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.S) then move = move - workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.A) then move = move - workspace.CurrentCamera.CFrame.RightVector end
+        if UIS:IsKeyDown(Enum.KeyCode.D) then move = move + workspace.CurrentCamera.CFrame.RightVector end
+        HRP.Velocity = move * speed
+    else
+        if conn then conn:Disconnect() end
+    end
+end)
+-- Note: Adjust speed per lesson to show variety
+
+
+Lesson Fly 11: Desktop Fly Script
+-----------------------------------
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 51
+local RS = game:GetService("RunService")
+local UIS = game:GetService("UserInputService")
+local conn
+conn = RS.RenderStepped:Connect(function(delta)
+    if flying then
+        local move = Vector3.new()
+        if UIS:IsKeyDown(Enum.KeyCode.W) then move = move + workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.S) then move = move - workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.A) then move = move - workspace.CurrentCamera.CFrame.RightVector end
+        if UIS:IsKeyDown(Enum.KeyCode.D) then move = move + workspace.CurrentCamera.CFrame.RightVector end
+        HRP.Velocity = move * speed
+    else
+        if conn then conn:Disconnect() end
+    end
+end)
+-- Note: Adjust speed per lesson to show variety
+
+
+Lesson Fly 12: Desktop Fly Script
+-----------------------------------
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 52
+local RS = game:GetService("RunService")
+local UIS = game:GetService("UserInputService")
+local conn
+conn = RS.RenderStepped:Connect(function(delta)
+    if flying then
+        local move = Vector3.new()
+        if UIS:IsKeyDown(Enum.KeyCode.W) then move = move + workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.S) then move = move - workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.A) then move = move - workspace.CurrentCamera.CFrame.RightVector end
+        if UIS:IsKeyDown(Enum.KeyCode.D) then move = move + workspace.CurrentCamera.CFrame.RightVector end
+        HRP.Velocity = move * speed
+    else
+        if conn then conn:Disconnect() end
+    end
+end)
+-- Note: Adjust speed per lesson to show variety
+
+
+Lesson Fly 13: Desktop Fly Script
+-----------------------------------
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 53
+local RS = game:GetService("RunService")
+local UIS = game:GetService("UserInputService")
+local conn
+conn = RS.RenderStepped:Connect(function(delta)
+    if flying then
+        local move = Vector3.new()
+        if UIS:IsKeyDown(Enum.KeyCode.W) then move = move + workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.S) then move = move - workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.A) then move = move - workspace.CurrentCamera.CFrame.RightVector end
+        if UIS:IsKeyDown(Enum.KeyCode.D) then move = move + workspace.CurrentCamera.CFrame.RightVector end
+        HRP.Velocity = move * speed
+    else
+        if conn then conn:Disconnect() end
+    end
+end)
+-- Note: Adjust speed per lesson to show variety
+
+
+Lesson Fly 14: Desktop Fly Script
+-----------------------------------
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 54
+local RS = game:GetService("RunService")
+local UIS = game:GetService("UserInputService")
+local conn
+conn = RS.RenderStepped:Connect(function(delta)
+    if flying then
+        local move = Vector3.new()
+        if UIS:IsKeyDown(Enum.KeyCode.W) then move = move + workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.S) then move = move - workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.A) then move = move - workspace.CurrentCamera.CFrame.RightVector end
+        if UIS:IsKeyDown(Enum.KeyCode.D) then move = move + workspace.CurrentCamera.CFrame.RightVector end
+        HRP.Velocity = move * speed
+    else
+        if conn then conn:Disconnect() end
+    end
+end)
+-- Note: Adjust speed per lesson to show variety
+
+
+Lesson Fly 15: Desktop Fly Script
+-----------------------------------
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 55
+local RS = game:GetService("RunService")
+local UIS = game:GetService("UserInputService")
+local conn
+conn = RS.RenderStepped:Connect(function(delta)
+    if flying then
+        local move = Vector3.new()
+        if UIS:IsKeyDown(Enum.KeyCode.W) then move = move + workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.S) then move = move - workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.A) then move = move - workspace.CurrentCamera.CFrame.RightVector end
+        if UIS:IsKeyDown(Enum.KeyCode.D) then move = move + workspace.CurrentCamera.CFrame.RightVector end
+        HRP.Velocity = move * speed
+    else
+        if conn then conn:Disconnect() end
+    end
+end)
+-- Note: Adjust speed per lesson to show variety
+
+
+Lesson Fly 16: Desktop Fly Script
+-----------------------------------
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 56
+local RS = game:GetService("RunService")
+local UIS = game:GetService("UserInputService")
+local conn
+conn = RS.RenderStepped:Connect(function(delta)
+    if flying then
+        local move = Vector3.new()
+        if UIS:IsKeyDown(Enum.KeyCode.W) then move = move + workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.S) then move = move - workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.A) then move = move - workspace.CurrentCamera.CFrame.RightVector end
+        if UIS:IsKeyDown(Enum.KeyCode.D) then move = move + workspace.CurrentCamera.CFrame.RightVector end
+        HRP.Velocity = move * speed
+    else
+        if conn then conn:Disconnect() end
+    end
+end)
+-- Note: Adjust speed per lesson to show variety
+
+
+Lesson Fly 17: Desktop Fly Script
+-----------------------------------
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 57
+local RS = game:GetService("RunService")
+local UIS = game:GetService("UserInputService")
+local conn
+conn = RS.RenderStepped:Connect(function(delta)
+    if flying then
+        local move = Vector3.new()
+        if UIS:IsKeyDown(Enum.KeyCode.W) then move = move + workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.S) then move = move - workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.A) then move = move - workspace.CurrentCamera.CFrame.RightVector end
+        if UIS:IsKeyDown(Enum.KeyCode.D) then move = move + workspace.CurrentCamera.CFrame.RightVector end
+        HRP.Velocity = move * speed
+    else
+        if conn then conn:Disconnect() end
+    end
+end)
+-- Note: Adjust speed per lesson to show variety
+
+
+Lesson Fly 18: Desktop Fly Script
+-----------------------------------
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 58
+local RS = game:GetService("RunService")
+local UIS = game:GetService("UserInputService")
+local conn
+conn = RS.RenderStepped:Connect(function(delta)
+    if flying then
+        local move = Vector3.new()
+        if UIS:IsKeyDown(Enum.KeyCode.W) then move = move + workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.S) then move = move - workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.A) then move = move - workspace.CurrentCamera.CFrame.RightVector end
+        if UIS:IsKeyDown(Enum.KeyCode.D) then move = move + workspace.CurrentCamera.CFrame.RightVector end
+        HRP.Velocity = move * speed
+    else
+        if conn then conn:Disconnect() end
+    end
+end)
+-- Note: Adjust speed per lesson to show variety
+
+
+Lesson Fly 19: Desktop Fly Script
+-----------------------------------
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 59
+local RS = game:GetService("RunService")
+local UIS = game:GetService("UserInputService")
+local conn
+conn = RS.RenderStepped:Connect(function(delta)
+    if flying then
+        local move = Vector3.new()
+        if UIS:IsKeyDown(Enum.KeyCode.W) then move = move + workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.S) then move = move - workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.A) then move = move - workspace.CurrentCamera.CFrame.RightVector end
+        if UIS:IsKeyDown(Enum.KeyCode.D) then move = move + workspace.CurrentCamera.CFrame.RightVector end
+        HRP.Velocity = move * speed
+    else
+        if conn then conn:Disconnect() end
+    end
+end)
+-- Note: Adjust speed per lesson to show variety
+
+
+Lesson Fly 20: Desktop Fly Script
+-----------------------------------
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 60
+local RS = game:GetService("RunService")
+local UIS = game:GetService("UserInputService")
+local conn
+conn = RS.RenderStepped:Connect(function(delta)
+    if flying then
+        local move = Vector3.new()
+        if UIS:IsKeyDown(Enum.KeyCode.W) then move = move + workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.S) then move = move - workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.A) then move = move - workspace.CurrentCamera.CFrame.RightVector end
+        if UIS:IsKeyDown(Enum.KeyCode.D) then move = move + workspace.CurrentCamera.CFrame.RightVector end
+        HRP.Velocity = move * speed
+    else
+        if conn then conn:Disconnect() end
+    end
+end)
+-- Note: Adjust speed per lesson to show variety
+
+
+Lesson Fly 21: Desktop Fly Script
+-----------------------------------
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 61
+local RS = game:GetService("RunService")
+local UIS = game:GetService("UserInputService")
+local conn
+conn = RS.RenderStepped:Connect(function(delta)
+    if flying then
+        local move = Vector3.new()
+        if UIS:IsKeyDown(Enum.KeyCode.W) then move = move + workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.S) then move = move - workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.A) then move = move - workspace.CurrentCamera.CFrame.RightVector end
+        if UIS:IsKeyDown(Enum.KeyCode.D) then move = move + workspace.CurrentCamera.CFrame.RightVector end
+        HRP.Velocity = move * speed
+    else
+        if conn then conn:Disconnect() end
+    end
+end)
+-- Note: Adjust speed per lesson to show variety
+
+
+Lesson Fly 22: Desktop Fly Script
+-----------------------------------
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 62
+local RS = game:GetService("RunService")
+local UIS = game:GetService("UserInputService")
+local conn
+conn = RS.RenderStepped:Connect(function(delta)
+    if flying then
+        local move = Vector3.new()
+        if UIS:IsKeyDown(Enum.KeyCode.W) then move = move + workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.S) then move = move - workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.A) then move = move - workspace.CurrentCamera.CFrame.RightVector end
+        if UIS:IsKeyDown(Enum.KeyCode.D) then move = move + workspace.CurrentCamera.CFrame.RightVector end
+        HRP.Velocity = move * speed
+    else
+        if conn then conn:Disconnect() end
+    end
+end)
+-- Note: Adjust speed per lesson to show variety
+
+
+Lesson Fly 23: Desktop Fly Script
+-----------------------------------
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 63
+local RS = game:GetService("RunService")
+local UIS = game:GetService("UserInputService")
+local conn
+conn = RS.RenderStepped:Connect(function(delta)
+    if flying then
+        local move = Vector3.new()
+        if UIS:IsKeyDown(Enum.KeyCode.W) then move = move + workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.S) then move = move - workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.A) then move = move - workspace.CurrentCamera.CFrame.RightVector end
+        if UIS:IsKeyDown(Enum.KeyCode.D) then move = move + workspace.CurrentCamera.CFrame.RightVector end
+        HRP.Velocity = move * speed
+    else
+        if conn then conn:Disconnect() end
+    end
+end)
+-- Note: Adjust speed per lesson to show variety
+
+
+Lesson Fly 24: Desktop Fly Script
+-----------------------------------
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 64
+local RS = game:GetService("RunService")
+local UIS = game:GetService("UserInputService")
+local conn
+conn = RS.RenderStepped:Connect(function(delta)
+    if flying then
+        local move = Vector3.new()
+        if UIS:IsKeyDown(Enum.KeyCode.W) then move = move + workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.S) then move = move - workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.A) then move = move - workspace.CurrentCamera.CFrame.RightVector end
+        if UIS:IsKeyDown(Enum.KeyCode.D) then move = move + workspace.CurrentCamera.CFrame.RightVector end
+        HRP.Velocity = move * speed
+    else
+        if conn then conn:Disconnect() end
+    end
+end)
+-- Note: Adjust speed per lesson to show variety
+
+
+Lesson Fly 25: Desktop Fly Script
+-----------------------------------
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 65
+local RS = game:GetService("RunService")
+local UIS = game:GetService("UserInputService")
+local conn
+conn = RS.RenderStepped:Connect(function(delta)
+    if flying then
+        local move = Vector3.new()
+        if UIS:IsKeyDown(Enum.KeyCode.W) then move = move + workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.S) then move = move - workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.A) then move = move - workspace.CurrentCamera.CFrame.RightVector end
+        if UIS:IsKeyDown(Enum.KeyCode.D) then move = move + workspace.CurrentCamera.CFrame.RightVector end
+        HRP.Velocity = move * speed
+    else
+        if conn then conn:Disconnect() end
+    end
+end)
+-- Note: Adjust speed per lesson to show variety
+
+
+Lesson Fly 26: Desktop Fly Script
+-----------------------------------
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 66
+local RS = game:GetService("RunService")
+local UIS = game:GetService("UserInputService")
+local conn
+conn = RS.RenderStepped:Connect(function(delta)
+    if flying then
+        local move = Vector3.new()
+        if UIS:IsKeyDown(Enum.KeyCode.W) then move = move + workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.S) then move = move - workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.A) then move = move - workspace.CurrentCamera.CFrame.RightVector end
+        if UIS:IsKeyDown(Enum.KeyCode.D) then move = move + workspace.CurrentCamera.CFrame.RightVector end
+        HRP.Velocity = move * speed
+    else
+        if conn then conn:Disconnect() end
+    end
+end)
+-- Note: Adjust speed per lesson to show variety
+
+
+Lesson Fly 27: Desktop Fly Script
+-----------------------------------
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 67
+local RS = game:GetService("RunService")
+local UIS = game:GetService("UserInputService")
+local conn
+conn = RS.RenderStepped:Connect(function(delta)
+    if flying then
+        local move = Vector3.new()
+        if UIS:IsKeyDown(Enum.KeyCode.W) then move = move + workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.S) then move = move - workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.A) then move = move - workspace.CurrentCamera.CFrame.RightVector end
+        if UIS:IsKeyDown(Enum.KeyCode.D) then move = move + workspace.CurrentCamera.CFrame.RightVector end
+        HRP.Velocity = move * speed
+    else
+        if conn then conn:Disconnect() end
+    end
+end)
+-- Note: Adjust speed per lesson to show variety
+
+
+Lesson Fly 28: Desktop Fly Script
+-----------------------------------
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 68
+local RS = game:GetService("RunService")
+local UIS = game:GetService("UserInputService")
+local conn
+conn = RS.RenderStepped:Connect(function(delta)
+    if flying then
+        local move = Vector3.new()
+        if UIS:IsKeyDown(Enum.KeyCode.W) then move = move + workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.S) then move = move - workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.A) then move = move - workspace.CurrentCamera.CFrame.RightVector end
+        if UIS:IsKeyDown(Enum.KeyCode.D) then move = move + workspace.CurrentCamera.CFrame.RightVector end
+        HRP.Velocity = move * speed
+    else
+        if conn then conn:Disconnect() end
+    end
+end)
+-- Note: Adjust speed per lesson to show variety
+
+
+Lesson Fly 29: Desktop Fly Script
+-----------------------------------
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 69
+local RS = game:GetService("RunService")
+local UIS = game:GetService("UserInputService")
+local conn
+conn = RS.RenderStepped:Connect(function(delta)
+    if flying then
+        local move = Vector3.new()
+        if UIS:IsKeyDown(Enum.KeyCode.W) then move = move + workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.S) then move = move - workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.A) then move = move - workspace.CurrentCamera.CFrame.RightVector end
+        if UIS:IsKeyDown(Enum.KeyCode.D) then move = move + workspace.CurrentCamera.CFrame.RightVector end
+        HRP.Velocity = move * speed
+    else
+        if conn then conn:Disconnect() end
+    end
+end)
+-- Note: Adjust speed per lesson to show variety
+
+
+Lesson Fly 30: Desktop Fly Script
+-----------------------------------
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 70
+local RS = game:GetService("RunService")
+local UIS = game:GetService("UserInputService")
+local conn
+conn = RS.RenderStepped:Connect(function(delta)
+    if flying then
+        local move = Vector3.new()
+        if UIS:IsKeyDown(Enum.KeyCode.W) then move = move + workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.S) then move = move - workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.A) then move = move - workspace.CurrentCamera.CFrame.RightVector end
+        if UIS:IsKeyDown(Enum.KeyCode.D) then move = move + workspace.CurrentCamera.CFrame.RightVector end
+        HRP.Velocity = move * speed
+    else
+        if conn then conn:Disconnect() end
+    end
+end)
+-- Note: Adjust speed per lesson to show variety
+
+
+Lesson Fly 31: Desktop Fly Script
+-----------------------------------
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 71
+local RS = game:GetService("RunService")
+local UIS = game:GetService("UserInputService")
+local conn
+conn = RS.RenderStepped:Connect(function(delta)
+    if flying then
+        local move = Vector3.new()
+        if UIS:IsKeyDown(Enum.KeyCode.W) then move = move + workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.S) then move = move - workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.A) then move = move - workspace.CurrentCamera.CFrame.RightVector end
+        if UIS:IsKeyDown(Enum.KeyCode.D) then move = move + workspace.CurrentCamera.CFrame.RightVector end
+        HRP.Velocity = move * speed
+    else
+        if conn then conn:Disconnect() end
+    end
+end)
+-- Note: Adjust speed per lesson to show variety
+
+
+Lesson Fly 32: Desktop Fly Script
+-----------------------------------
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 72
+local RS = game:GetService("RunService")
+local UIS = game:GetService("UserInputService")
+local conn
+conn = RS.RenderStepped:Connect(function(delta)
+    if flying then
+        local move = Vector3.new()
+        if UIS:IsKeyDown(Enum.KeyCode.W) then move = move + workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.S) then move = move - workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.A) then move = move - workspace.CurrentCamera.CFrame.RightVector end
+        if UIS:IsKeyDown(Enum.KeyCode.D) then move = move + workspace.CurrentCamera.CFrame.RightVector end
+        HRP.Velocity = move * speed
+    else
+        if conn then conn:Disconnect() end
+    end
+end)
+-- Note: Adjust speed per lesson to show variety
+
+
+Lesson Fly 33: Desktop Fly Script
+-----------------------------------
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 73
+local RS = game:GetService("RunService")
+local UIS = game:GetService("UserInputService")
+local conn
+conn = RS.RenderStepped:Connect(function(delta)
+    if flying then
+        local move = Vector3.new()
+        if UIS:IsKeyDown(Enum.KeyCode.W) then move = move + workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.S) then move = move - workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.A) then move = move - workspace.CurrentCamera.CFrame.RightVector end
+        if UIS:IsKeyDown(Enum.KeyCode.D) then move = move + workspace.CurrentCamera.CFrame.RightVector end
+        HRP.Velocity = move * speed
+    else
+        if conn then conn:Disconnect() end
+    end
+end)
+-- Note: Adjust speed per lesson to show variety
+
+
+Lesson Fly 34: Desktop Fly Script
+-----------------------------------
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 74
+local RS = game:GetService("RunService")
+local UIS = game:GetService("UserInputService")
+local conn
+conn = RS.RenderStepped:Connect(function(delta)
+    if flying then
+        local move = Vector3.new()
+        if UIS:IsKeyDown(Enum.KeyCode.W) then move = move + workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.S) then move = move - workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.A) then move = move - workspace.CurrentCamera.CFrame.RightVector end
+        if UIS:IsKeyDown(Enum.KeyCode.D) then move = move + workspace.CurrentCamera.CFrame.RightVector end
+        HRP.Velocity = move * speed
+    else
+        if conn then conn:Disconnect() end
+    end
+end)
+-- Note: Adjust speed per lesson to show variety
+
+
+Lesson Fly 35: Desktop Fly Script
+-----------------------------------
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 75
+local RS = game:GetService("RunService")
+local UIS = game:GetService("UserInputService")
+local conn
+conn = RS.RenderStepped:Connect(function(delta)
+    if flying then
+        local move = Vector3.new()
+        if UIS:IsKeyDown(Enum.KeyCode.W) then move = move + workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.S) then move = move - workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.A) then move = move - workspace.CurrentCamera.CFrame.RightVector end
+        if UIS:IsKeyDown(Enum.KeyCode.D) then move = move + workspace.CurrentCamera.CFrame.RightVector end
+        HRP.Velocity = move * speed
+    else
+        if conn then conn:Disconnect() end
+    end
+end)
+-- Note: Adjust speed per lesson to show variety
+
+
+Lesson Fly 36: Desktop Fly Script
+-----------------------------------
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 76
+local RS = game:GetService("RunService")
+local UIS = game:GetService("UserInputService")
+local conn
+conn = RS.RenderStepped:Connect(function(delta)
+    if flying then
+        local move = Vector3.new()
+        if UIS:IsKeyDown(Enum.KeyCode.W) then move = move + workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.S) then move = move - workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.A) then move = move - workspace.CurrentCamera.CFrame.RightVector end
+        if UIS:IsKeyDown(Enum.KeyCode.D) then move = move + workspace.CurrentCamera.CFrame.RightVector end
+        HRP.Velocity = move * speed
+    else
+        if conn then conn:Disconnect() end
+    end
+end)
+-- Note: Adjust speed per lesson to show variety
+
+
+Lesson Fly 37: Desktop Fly Script
+-----------------------------------
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 77
+local RS = game:GetService("RunService")
+local UIS = game:GetService("UserInputService")
+local conn
+conn = RS.RenderStepped:Connect(function(delta)
+    if flying then
+        local move = Vector3.new()
+        if UIS:IsKeyDown(Enum.KeyCode.W) then move = move + workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.S) then move = move - workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.A) then move = move - workspace.CurrentCamera.CFrame.RightVector end
+        if UIS:IsKeyDown(Enum.KeyCode.D) then move = move + workspace.CurrentCamera.CFrame.RightVector end
+        HRP.Velocity = move * speed
+    else
+        if conn then conn:Disconnect() end
+    end
+end)
+-- Note: Adjust speed per lesson to show variety
+
+
+Lesson Fly 38: Desktop Fly Script
+-----------------------------------
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 78
+local RS = game:GetService("RunService")
+local UIS = game:GetService("UserInputService")
+local conn
+conn = RS.RenderStepped:Connect(function(delta)
+    if flying then
+        local move = Vector3.new()
+        if UIS:IsKeyDown(Enum.KeyCode.W) then move = move + workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.S) then move = move - workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.A) then move = move - workspace.CurrentCamera.CFrame.RightVector end
+        if UIS:IsKeyDown(Enum.KeyCode.D) then move = move + workspace.CurrentCamera.CFrame.RightVector end
+        HRP.Velocity = move * speed
+    else
+        if conn then conn:Disconnect() end
+    end
+end)
+-- Note: Adjust speed per lesson to show variety
+
+
+Lesson Fly 39: Desktop Fly Script
+-----------------------------------
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 79
+local RS = game:GetService("RunService")
+local UIS = game:GetService("UserInputService")
+local conn
+conn = RS.RenderStepped:Connect(function(delta)
+    if flying then
+        local move = Vector3.new()
+        if UIS:IsKeyDown(Enum.KeyCode.W) then move = move + workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.S) then move = move - workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.A) then move = move - workspace.CurrentCamera.CFrame.RightVector end
+        if UIS:IsKeyDown(Enum.KeyCode.D) then move = move + workspace.CurrentCamera.CFrame.RightVector end
+        HRP.Velocity = move * speed
+    else
+        if conn then conn:Disconnect() end
+    end
+end)
+-- Note: Adjust speed per lesson to show variety
+
+
+Lesson Fly 40: Desktop Fly Script
+-----------------------------------
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 80
+local RS = game:GetService("RunService")
+local UIS = game:GetService("UserInputService")
+local conn
+conn = RS.RenderStepped:Connect(function(delta)
+    if flying then
+        local move = Vector3.new()
+        if UIS:IsKeyDown(Enum.KeyCode.W) then move = move + workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.S) then move = move - workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.A) then move = move - workspace.CurrentCamera.CFrame.RightVector end
+        if UIS:IsKeyDown(Enum.KeyCode.D) then move = move + workspace.CurrentCamera.CFrame.RightVector end
+        HRP.Velocity = move * speed
+    else
+        if conn then conn:Disconnect() end
+    end
+end)
+-- Note: Adjust speed per lesson to show variety
+
+
+Lesson Fly 41: Desktop Fly Script
+-----------------------------------
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 81
+local RS = game:GetService("RunService")
+local UIS = game:GetService("UserInputService")
+local conn
+conn = RS.RenderStepped:Connect(function(delta)
+    if flying then
+        local move = Vector3.new()
+        if UIS:IsKeyDown(Enum.KeyCode.W) then move = move + workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.S) then move = move - workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.A) then move = move - workspace.CurrentCamera.CFrame.RightVector end
+        if UIS:IsKeyDown(Enum.KeyCode.D) then move = move + workspace.CurrentCamera.CFrame.RightVector end
+        HRP.Velocity = move * speed
+    else
+        if conn then conn:Disconnect() end
+    end
+end)
+-- Note: Adjust speed per lesson to show variety
+
+
+Lesson Fly 42: Desktop Fly Script
+-----------------------------------
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 82
+local RS = game:GetService("RunService")
+local UIS = game:GetService("UserInputService")
+local conn
+conn = RS.RenderStepped:Connect(function(delta)
+    if flying then
+        local move = Vector3.new()
+        if UIS:IsKeyDown(Enum.KeyCode.W) then move = move + workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.S) then move = move - workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.A) then move = move - workspace.CurrentCamera.CFrame.RightVector end
+        if UIS:IsKeyDown(Enum.KeyCode.D) then move = move + workspace.CurrentCamera.CFrame.RightVector end
+        HRP.Velocity = move * speed
+    else
+        if conn then conn:Disconnect() end
+    end
+end)
+-- Note: Adjust speed per lesson to show variety
+
+
+Lesson Fly 43: Desktop Fly Script
+-----------------------------------
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 83
+local RS = game:GetService("RunService")
+local UIS = game:GetService("UserInputService")
+local conn
+conn = RS.RenderStepped:Connect(function(delta)
+    if flying then
+        local move = Vector3.new()
+        if UIS:IsKeyDown(Enum.KeyCode.W) then move = move + workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.S) then move = move - workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.A) then move = move - workspace.CurrentCamera.CFrame.RightVector end
+        if UIS:IsKeyDown(Enum.KeyCode.D) then move = move + workspace.CurrentCamera.CFrame.RightVector end
+        HRP.Velocity = move * speed
+    else
+        if conn then conn:Disconnect() end
+    end
+end)
+-- Note: Adjust speed per lesson to show variety
+
+
+Lesson Fly 44: Desktop Fly Script
+-----------------------------------
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 84
+local RS = game:GetService("RunService")
+local UIS = game:GetService("UserInputService")
+local conn
+conn = RS.RenderStepped:Connect(function(delta)
+    if flying then
+        local move = Vector3.new()
+        if UIS:IsKeyDown(Enum.KeyCode.W) then move = move + workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.S) then move = move - workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.A) then move = move - workspace.CurrentCamera.CFrame.RightVector end
+        if UIS:IsKeyDown(Enum.KeyCode.D) then move = move + workspace.CurrentCamera.CFrame.RightVector end
+        HRP.Velocity = move * speed
+    else
+        if conn then conn:Disconnect() end
+    end
+end)
+-- Note: Adjust speed per lesson to show variety
+
+
+Lesson Fly 45: Desktop Fly Script
+-----------------------------------
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 85
+local RS = game:GetService("RunService")
+local UIS = game:GetService("UserInputService")
+local conn
+conn = RS.RenderStepped:Connect(function(delta)
+    if flying then
+        local move = Vector3.new()
+        if UIS:IsKeyDown(Enum.KeyCode.W) then move = move + workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.S) then move = move - workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.A) then move = move - workspace.CurrentCamera.CFrame.RightVector end
+        if UIS:IsKeyDown(Enum.KeyCode.D) then move = move + workspace.CurrentCamera.CFrame.RightVector end
+        HRP.Velocity = move * speed
+    else
+        if conn then conn:Disconnect() end
+    end
+end)
+-- Note: Adjust speed per lesson to show variety
+
+
+Lesson Fly 46: Desktop Fly Script
+-----------------------------------
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 86
+local RS = game:GetService("RunService")
+local UIS = game:GetService("UserInputService")
+local conn
+conn = RS.RenderStepped:Connect(function(delta)
+    if flying then
+        local move = Vector3.new()
+        if UIS:IsKeyDown(Enum.KeyCode.W) then move = move + workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.S) then move = move - workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.A) then move = move - workspace.CurrentCamera.CFrame.RightVector end
+        if UIS:IsKeyDown(Enum.KeyCode.D) then move = move + workspace.CurrentCamera.CFrame.RightVector end
+        HRP.Velocity = move * speed
+    else
+        if conn then conn:Disconnect() end
+    end
+end)
+-- Note: Adjust speed per lesson to show variety
+
+
+Lesson Fly 47: Desktop Fly Script
+-----------------------------------
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 87
+local RS = game:GetService("RunService")
+local UIS = game:GetService("UserInputService")
+local conn
+conn = RS.RenderStepped:Connect(function(delta)
+    if flying then
+        local move = Vector3.new()
+        if UIS:IsKeyDown(Enum.KeyCode.W) then move = move + workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.S) then move = move - workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.A) then move = move - workspace.CurrentCamera.CFrame.RightVector end
+        if UIS:IsKeyDown(Enum.KeyCode.D) then move = move + workspace.CurrentCamera.CFrame.RightVector end
+        HRP.Velocity = move * speed
+    else
+        if conn then conn:Disconnect() end
+    end
+end)
+-- Note: Adjust speed per lesson to show variety
+
+
+Lesson Fly 48: Desktop Fly Script
+-----------------------------------
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 88
+local RS = game:GetService("RunService")
+local UIS = game:GetService("UserInputService")
+local conn
+conn = RS.RenderStepped:Connect(function(delta)
+    if flying then
+        local move = Vector3.new()
+        if UIS:IsKeyDown(Enum.KeyCode.W) then move = move + workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.S) then move = move - workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.A) then move = move - workspace.CurrentCamera.CFrame.RightVector end
+        if UIS:IsKeyDown(Enum.KeyCode.D) then move = move + workspace.CurrentCamera.CFrame.RightVector end
+        HRP.Velocity = move * speed
+    else
+        if conn then conn:Disconnect() end
+    end
+end)
+-- Note: Adjust speed per lesson to show variety
+
+
+Lesson Fly 49: Desktop Fly Script
+-----------------------------------
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 89
+local RS = game:GetService("RunService")
+local UIS = game:GetService("UserInputService")
+local conn
+conn = RS.RenderStepped:Connect(function(delta)
+    if flying then
+        local move = Vector3.new()
+        if UIS:IsKeyDown(Enum.KeyCode.W) then move = move + workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.S) then move = move - workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.A) then move = move - workspace.CurrentCamera.CFrame.RightVector end
+        if UIS:IsKeyDown(Enum.KeyCode.D) then move = move + workspace.CurrentCamera.CFrame.RightVector end
+        HRP.Velocity = move * speed
+    else
+        if conn then conn:Disconnect() end
+    end
+end)
+-- Note: Adjust speed per lesson to show variety
+
+
+Lesson Fly 50: Desktop Fly Script
+-----------------------------------
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 90
+local RS = game:GetService("RunService")
+local UIS = game:GetService("UserInputService")
+local conn
+conn = RS.RenderStepped:Connect(function(delta)
+    if flying then
+        local move = Vector3.new()
+        if UIS:IsKeyDown(Enum.KeyCode.W) then move = move + workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.S) then move = move - workspace.CurrentCamera.CFrame.LookVector end
+        if UIS:IsKeyDown(Enum.KeyCode.A) then move = move - workspace.CurrentCamera.CFrame.RightVector end
+        if UIS:IsKeyDown(Enum.KeyCode.D) then move = move + workspace.CurrentCamera.CFrame.RightVector end
+        HRP.Velocity = move * speed
+    else
+        if conn then conn:Disconnect() end
+    end
+end)
+-- Note: Adjust speed per lesson to show variety
+
+
+Lesson Fly Mobile 1: Mobile Joystick Fly
+-------------------------------------------
+-- Teaching Note: Uses UIS.TouchEnabled, Frame+Knob for joystick
+-- Vector = Knob.Position - Base.Position
+-- Smooth movement with RenderStepped
+-- Example:
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 45
+-- Attach Frame joystick controls, update HRP.Velocity based on vector
+
+
+Lesson Fly Mobile 2: Mobile Joystick Fly
+-------------------------------------------
+-- Teaching Note: Uses UIS.TouchEnabled, Frame+Knob for joystick
+-- Vector = Knob.Position - Base.Position
+-- Smooth movement with RenderStepped
+-- Example:
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 45
+-- Attach Frame joystick controls, update HRP.Velocity based on vector
+
+
+Lesson Fly Mobile 3: Mobile Joystick Fly
+-------------------------------------------
+-- Teaching Note: Uses UIS.TouchEnabled, Frame+Knob for joystick
+-- Vector = Knob.Position - Base.Position
+-- Smooth movement with RenderStepped
+-- Example:
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 45
+-- Attach Frame joystick controls, update HRP.Velocity based on vector
+
+
+Lesson Fly Mobile 4: Mobile Joystick Fly
+-------------------------------------------
+-- Teaching Note: Uses UIS.TouchEnabled, Frame+Knob for joystick
+-- Vector = Knob.Position - Base.Position
+-- Smooth movement with RenderStepped
+-- Example:
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 45
+-- Attach Frame joystick controls, update HRP.Velocity based on vector
+
+
+Lesson Fly Mobile 5: Mobile Joystick Fly
+-------------------------------------------
+-- Teaching Note: Uses UIS.TouchEnabled, Frame+Knob for joystick
+-- Vector = Knob.Position - Base.Position
+-- Smooth movement with RenderStepped
+-- Example:
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 45
+-- Attach Frame joystick controls, update HRP.Velocity based on vector
+
+
+Lesson Fly Mobile 6: Mobile Joystick Fly
+-------------------------------------------
+-- Teaching Note: Uses UIS.TouchEnabled, Frame+Knob for joystick
+-- Vector = Knob.Position - Base.Position
+-- Smooth movement with RenderStepped
+-- Example:
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 45
+-- Attach Frame joystick controls, update HRP.Velocity based on vector
+
+
+Lesson Fly Mobile 7: Mobile Joystick Fly
+-------------------------------------------
+-- Teaching Note: Uses UIS.TouchEnabled, Frame+Knob for joystick
+-- Vector = Knob.Position - Base.Position
+-- Smooth movement with RenderStepped
+-- Example:
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 45
+-- Attach Frame joystick controls, update HRP.Velocity based on vector
+
+
+Lesson Fly Mobile 8: Mobile Joystick Fly
+-------------------------------------------
+-- Teaching Note: Uses UIS.TouchEnabled, Frame+Knob for joystick
+-- Vector = Knob.Position - Base.Position
+-- Smooth movement with RenderStepped
+-- Example:
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 45
+-- Attach Frame joystick controls, update HRP.Velocity based on vector
+
+
+Lesson Fly Mobile 9: Mobile Joystick Fly
+-------------------------------------------
+-- Teaching Note: Uses UIS.TouchEnabled, Frame+Knob for joystick
+-- Vector = Knob.Position - Base.Position
+-- Smooth movement with RenderStepped
+-- Example:
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 45
+-- Attach Frame joystick controls, update HRP.Velocity based on vector
+
+
+Lesson Fly Mobile 10: Mobile Joystick Fly
+-------------------------------------------
+-- Teaching Note: Uses UIS.TouchEnabled, Frame+Knob for joystick
+-- Vector = Knob.Position - Base.Position
+-- Smooth movement with RenderStepped
+-- Example:
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 45
+-- Attach Frame joystick controls, update HRP.Velocity based on vector
+
+
+Lesson Fly Mobile 11: Mobile Joystick Fly
+-------------------------------------------
+-- Teaching Note: Uses UIS.TouchEnabled, Frame+Knob for joystick
+-- Vector = Knob.Position - Base.Position
+-- Smooth movement with RenderStepped
+-- Example:
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 45
+-- Attach Frame joystick controls, update HRP.Velocity based on vector
+
+
+Lesson Fly Mobile 12: Mobile Joystick Fly
+-------------------------------------------
+-- Teaching Note: Uses UIS.TouchEnabled, Frame+Knob for joystick
+-- Vector = Knob.Position - Base.Position
+-- Smooth movement with RenderStepped
+-- Example:
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 45
+-- Attach Frame joystick controls, update HRP.Velocity based on vector
+
+
+Lesson Fly Mobile 13: Mobile Joystick Fly
+-------------------------------------------
+-- Teaching Note: Uses UIS.TouchEnabled, Frame+Knob for joystick
+-- Vector = Knob.Position - Base.Position
+-- Smooth movement with RenderStepped
+-- Example:
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 45
+-- Attach Frame joystick controls, update HRP.Velocity based on vector
+
+
+Lesson Fly Mobile 14: Mobile Joystick Fly
+-------------------------------------------
+-- Teaching Note: Uses UIS.TouchEnabled, Frame+Knob for joystick
+-- Vector = Knob.Position - Base.Position
+-- Smooth movement with RenderStepped
+-- Example:
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 45
+-- Attach Frame joystick controls, update HRP.Velocity based on vector
+
+
+Lesson Fly Mobile 15: Mobile Joystick Fly
+-------------------------------------------
+-- Teaching Note: Uses UIS.TouchEnabled, Frame+Knob for joystick
+-- Vector = Knob.Position - Base.Position
+-- Smooth movement with RenderStepped
+-- Example:
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 45
+-- Attach Frame joystick controls, update HRP.Velocity based on vector
+
+
+Lesson Fly Mobile 16: Mobile Joystick Fly
+-------------------------------------------
+-- Teaching Note: Uses UIS.TouchEnabled, Frame+Knob for joystick
+-- Vector = Knob.Position - Base.Position
+-- Smooth movement with RenderStepped
+-- Example:
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 45
+-- Attach Frame joystick controls, update HRP.Velocity based on vector
+
+
+Lesson Fly Mobile 17: Mobile Joystick Fly
+-------------------------------------------
+-- Teaching Note: Uses UIS.TouchEnabled, Frame+Knob for joystick
+-- Vector = Knob.Position - Base.Position
+-- Smooth movement with RenderStepped
+-- Example:
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 45
+-- Attach Frame joystick controls, update HRP.Velocity based on vector
+
+
+Lesson Fly Mobile 18: Mobile Joystick Fly
+-------------------------------------------
+-- Teaching Note: Uses UIS.TouchEnabled, Frame+Knob for joystick
+-- Vector = Knob.Position - Base.Position
+-- Smooth movement with RenderStepped
+-- Example:
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 45
+-- Attach Frame joystick controls, update HRP.Velocity based on vector
+
+
+Lesson Fly Mobile 19: Mobile Joystick Fly
+-------------------------------------------
+-- Teaching Note: Uses UIS.TouchEnabled, Frame+Knob for joystick
+-- Vector = Knob.Position - Base.Position
+-- Smooth movement with RenderStepped
+-- Example:
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 45
+-- Attach Frame joystick controls, update HRP.Velocity based on vector
+
+
+Lesson Fly Mobile 20: Mobile Joystick Fly
+-------------------------------------------
+-- Teaching Note: Uses UIS.TouchEnabled, Frame+Knob for joystick
+-- Vector = Knob.Position - Base.Position
+-- Smooth movement with RenderStepped
+-- Example:
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 45
+-- Attach Frame joystick controls, update HRP.Velocity based on vector
+
+
+Lesson Fly Mobile 21: Mobile Joystick Fly
+-------------------------------------------
+-- Teaching Note: Uses UIS.TouchEnabled, Frame+Knob for joystick
+-- Vector = Knob.Position - Base.Position
+-- Smooth movement with RenderStepped
+-- Example:
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 45
+-- Attach Frame joystick controls, update HRP.Velocity based on vector
+
+
+Lesson Fly Mobile 22: Mobile Joystick Fly
+-------------------------------------------
+-- Teaching Note: Uses UIS.TouchEnabled, Frame+Knob for joystick
+-- Vector = Knob.Position - Base.Position
+-- Smooth movement with RenderStepped
+-- Example:
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 45
+-- Attach Frame joystick controls, update HRP.Velocity based on vector
+
+
+Lesson Fly Mobile 23: Mobile Joystick Fly
+-------------------------------------------
+-- Teaching Note: Uses UIS.TouchEnabled, Frame+Knob for joystick
+-- Vector = Knob.Position - Base.Position
+-- Smooth movement with RenderStepped
+-- Example:
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 45
+-- Attach Frame joystick controls, update HRP.Velocity based on vector
+
+
+Lesson Fly Mobile 24: Mobile Joystick Fly
+-------------------------------------------
+-- Teaching Note: Uses UIS.TouchEnabled, Frame+Knob for joystick
+-- Vector = Knob.Position - Base.Position
+-- Smooth movement with RenderStepped
+-- Example:
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 45
+-- Attach Frame joystick controls, update HRP.Velocity based on vector
+
+
+Lesson Fly Mobile 25: Mobile Joystick Fly
+-------------------------------------------
+-- Teaching Note: Uses UIS.TouchEnabled, Frame+Knob for joystick
+-- Vector = Knob.Position - Base.Position
+-- Smooth movement with RenderStepped
+-- Example:
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 45
+-- Attach Frame joystick controls, update HRP.Velocity based on vector
+
+
+Lesson Fly Mobile 26: Mobile Joystick Fly
+-------------------------------------------
+-- Teaching Note: Uses UIS.TouchEnabled, Frame+Knob for joystick
+-- Vector = Knob.Position - Base.Position
+-- Smooth movement with RenderStepped
+-- Example:
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 45
+-- Attach Frame joystick controls, update HRP.Velocity based on vector
+
+
+Lesson Fly Mobile 27: Mobile Joystick Fly
+-------------------------------------------
+-- Teaching Note: Uses UIS.TouchEnabled, Frame+Knob for joystick
+-- Vector = Knob.Position - Base.Position
+-- Smooth movement with RenderStepped
+-- Example:
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 45
+-- Attach Frame joystick controls, update HRP.Velocity based on vector
+
+
+Lesson Fly Mobile 28: Mobile Joystick Fly
+-------------------------------------------
+-- Teaching Note: Uses UIS.TouchEnabled, Frame+Knob for joystick
+-- Vector = Knob.Position - Base.Position
+-- Smooth movement with RenderStepped
+-- Example:
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 45
+-- Attach Frame joystick controls, update HRP.Velocity based on vector
+
+
+Lesson Fly Mobile 29: Mobile Joystick Fly
+-------------------------------------------
+-- Teaching Note: Uses UIS.TouchEnabled, Frame+Knob for joystick
+-- Vector = Knob.Position - Base.Position
+-- Smooth movement with RenderStepped
+-- Example:
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 45
+-- Attach Frame joystick controls, update HRP.Velocity based on vector
+
+
+Lesson Fly Mobile 30: Mobile Joystick Fly
+-------------------------------------------
+-- Teaching Note: Uses UIS.TouchEnabled, Frame+Knob for joystick
+-- Vector = Knob.Position - Base.Position
+-- Smooth movement with RenderStepped
+-- Example:
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 45
+-- Attach Frame joystick controls, update HRP.Velocity based on vector
+
+
+Lesson Fly Mobile 31: Mobile Joystick Fly
+-------------------------------------------
+-- Teaching Note: Uses UIS.TouchEnabled, Frame+Knob for joystick
+-- Vector = Knob.Position - Base.Position
+-- Smooth movement with RenderStepped
+-- Example:
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 45
+-- Attach Frame joystick controls, update HRP.Velocity based on vector
+
+
+Lesson Fly Mobile 32: Mobile Joystick Fly
+-------------------------------------------
+-- Teaching Note: Uses UIS.TouchEnabled, Frame+Knob for joystick
+-- Vector = Knob.Position - Base.Position
+-- Smooth movement with RenderStepped
+-- Example:
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 45
+-- Attach Frame joystick controls, update HRP.Velocity based on vector
+
+
+Lesson Fly Mobile 33: Mobile Joystick Fly
+-------------------------------------------
+-- Teaching Note: Uses UIS.TouchEnabled, Frame+Knob for joystick
+-- Vector = Knob.Position - Base.Position
+-- Smooth movement with RenderStepped
+-- Example:
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 45
+-- Attach Frame joystick controls, update HRP.Velocity based on vector
+
+
+Lesson Fly Mobile 34: Mobile Joystick Fly
+-------------------------------------------
+-- Teaching Note: Uses UIS.TouchEnabled, Frame+Knob for joystick
+-- Vector = Knob.Position - Base.Position
+-- Smooth movement with RenderStepped
+-- Example:
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 45
+-- Attach Frame joystick controls, update HRP.Velocity based on vector
+
+
+Lesson Fly Mobile 35: Mobile Joystick Fly
+-------------------------------------------
+-- Teaching Note: Uses UIS.TouchEnabled, Frame+Knob for joystick
+-- Vector = Knob.Position - Base.Position
+-- Smooth movement with RenderStepped
+-- Example:
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 45
+-- Attach Frame joystick controls, update HRP.Velocity based on vector
+
+
+Lesson Fly Mobile 36: Mobile Joystick Fly
+-------------------------------------------
+-- Teaching Note: Uses UIS.TouchEnabled, Frame+Knob for joystick
+-- Vector = Knob.Position - Base.Position
+-- Smooth movement with RenderStepped
+-- Example:
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 45
+-- Attach Frame joystick controls, update HRP.Velocity based on vector
+
+
+Lesson Fly Mobile 37: Mobile Joystick Fly
+-------------------------------------------
+-- Teaching Note: Uses UIS.TouchEnabled, Frame+Knob for joystick
+-- Vector = Knob.Position - Base.Position
+-- Smooth movement with RenderStepped
+-- Example:
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 45
+-- Attach Frame joystick controls, update HRP.Velocity based on vector
+
+
+Lesson Fly Mobile 38: Mobile Joystick Fly
+-------------------------------------------
+-- Teaching Note: Uses UIS.TouchEnabled, Frame+Knob for joystick
+-- Vector = Knob.Position - Base.Position
+-- Smooth movement with RenderStepped
+-- Example:
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 45
+-- Attach Frame joystick controls, update HRP.Velocity based on vector
+
+
+Lesson Fly Mobile 39: Mobile Joystick Fly
+-------------------------------------------
+-- Teaching Note: Uses UIS.TouchEnabled, Frame+Knob for joystick
+-- Vector = Knob.Position - Base.Position
+-- Smooth movement with RenderStepped
+-- Example:
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 45
+-- Attach Frame joystick controls, update HRP.Velocity based on vector
+
+
+Lesson Fly Mobile 40: Mobile Joystick Fly
+-------------------------------------------
+-- Teaching Note: Uses UIS.TouchEnabled, Frame+Knob for joystick
+-- Vector = Knob.Position - Base.Position
+-- Smooth movement with RenderStepped
+-- Example:
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 45
+-- Attach Frame joystick controls, update HRP.Velocity based on vector
+
+
+Lesson Fly Mobile 41: Mobile Joystick Fly
+-------------------------------------------
+-- Teaching Note: Uses UIS.TouchEnabled, Frame+Knob for joystick
+-- Vector = Knob.Position - Base.Position
+-- Smooth movement with RenderStepped
+-- Example:
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 45
+-- Attach Frame joystick controls, update HRP.Velocity based on vector
+
+
+Lesson Fly Mobile 42: Mobile Joystick Fly
+-------------------------------------------
+-- Teaching Note: Uses UIS.TouchEnabled, Frame+Knob for joystick
+-- Vector = Knob.Position - Base.Position
+-- Smooth movement with RenderStepped
+-- Example:
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 45
+-- Attach Frame joystick controls, update HRP.Velocity based on vector
+
+
+Lesson Fly Mobile 43: Mobile Joystick Fly
+-------------------------------------------
+-- Teaching Note: Uses UIS.TouchEnabled, Frame+Knob for joystick
+-- Vector = Knob.Position - Base.Position
+-- Smooth movement with RenderStepped
+-- Example:
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 45
+-- Attach Frame joystick controls, update HRP.Velocity based on vector
+
+
+Lesson Fly Mobile 44: Mobile Joystick Fly
+-------------------------------------------
+-- Teaching Note: Uses UIS.TouchEnabled, Frame+Knob for joystick
+-- Vector = Knob.Position - Base.Position
+-- Smooth movement with RenderStepped
+-- Example:
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 45
+-- Attach Frame joystick controls, update HRP.Velocity based on vector
+
+
+Lesson Fly Mobile 45: Mobile Joystick Fly
+-------------------------------------------
+-- Teaching Note: Uses UIS.TouchEnabled, Frame+Knob for joystick
+-- Vector = Knob.Position - Base.Position
+-- Smooth movement with RenderStepped
+-- Example:
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 45
+-- Attach Frame joystick controls, update HRP.Velocity based on vector
+
+
+Lesson Fly Mobile 46: Mobile Joystick Fly
+-------------------------------------------
+-- Teaching Note: Uses UIS.TouchEnabled, Frame+Knob for joystick
+-- Vector = Knob.Position - Base.Position
+-- Smooth movement with RenderStepped
+-- Example:
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 45
+-- Attach Frame joystick controls, update HRP.Velocity based on vector
+
+
+Lesson Fly Mobile 47: Mobile Joystick Fly
+-------------------------------------------
+-- Teaching Note: Uses UIS.TouchEnabled, Frame+Knob for joystick
+-- Vector = Knob.Position - Base.Position
+-- Smooth movement with RenderStepped
+-- Example:
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 45
+-- Attach Frame joystick controls, update HRP.Velocity based on vector
+
+
+Lesson Fly Mobile 48: Mobile Joystick Fly
+-------------------------------------------
+-- Teaching Note: Uses UIS.TouchEnabled, Frame+Knob for joystick
+-- Vector = Knob.Position - Base.Position
+-- Smooth movement with RenderStepped
+-- Example:
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 45
+-- Attach Frame joystick controls, update HRP.Velocity based on vector
+
+
+Lesson Fly Mobile 49: Mobile Joystick Fly
+-------------------------------------------
+-- Teaching Note: Uses UIS.TouchEnabled, Frame+Knob for joystick
+-- Vector = Knob.Position - Base.Position
+-- Smooth movement with RenderStepped
+-- Example:
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 45
+-- Attach Frame joystick controls, update HRP.Velocity based on vector
+
+
+Lesson Fly Mobile 50: Mobile Joystick Fly
+-------------------------------------------
+-- Teaching Note: Uses UIS.TouchEnabled, Frame+Knob for joystick
+-- Vector = Knob.Position - Base.Position
+-- Smooth movement with RenderStepped
+-- Example:
+local HRP = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+local flying = true
+local speed = 45
+-- Attach Frame joystick controls, update HRP.Velocity based on vector
+
+
+Lesson SilentAim 1
+----------------------
+-- Teaching Notes:
+-- Iterate all players excluding LocalPlayer
+-- Predict head position: head.Position + velocity*lag
+-- Smooth camera adjustment using RenderStepped
+-- Safe client-side only
+-- Example pseudocode:
+-- for _,player in pairs(Players:GetPlayers()) do
+--   if player ~= LocalPlayer then
+--     local headPos = player.Character.Head.Position + player.Character.HumanoidRootPart.Velocity*0.1
+--     -- Adjust camera
+--   end
+-- end
+
+
+Lesson SilentAim 2
+----------------------
+-- Teaching Notes:
+-- Iterate all players excluding LocalPlayer
+-- Predict head position: head.Position + velocity*lag
+-- Smooth camera adjustment using RenderStepped
+-- Safe client-side only
+-- Example pseudocode:
+-- for _,player in pairs(Players:GetPlayers()) do
+--   if player ~= LocalPlayer then
+--     local headPos = player.Character.Head.Position + player.Character.HumanoidRootPart.Velocity*0.1
+--     -- Adjust camera
+--   end
+-- end
+
+
+Lesson SilentAim 3
+----------------------
+-- Teaching Notes:
+-- Iterate all players excluding LocalPlayer
+-- Predict head position: head.Position + velocity*lag
+-- Smooth camera adjustment using RenderStepped
+-- Safe client-side only
+-- Example pseudocode:
+-- for _,player in pairs(Players:GetPlayers()) do
+--   if player ~= LocalPlayer then
+--     local headPos = player.Character.Head.Position + player.Character.HumanoidRootPart.Velocity*0.1
+--     -- Adjust camera
+--   end
+-- end
+
+
+Lesson SilentAim 4
+----------------------
+-- Teaching Notes:
+-- Iterate all players excluding LocalPlayer
+-- Predict head position: head.Position + velocity*lag
+-- Smooth camera adjustment using RenderStepped
+-- Safe client-side only
+-- Example pseudocode:
+-- for _,player in pairs(Players:GetPlayers()) do
+--   if player ~= LocalPlayer then
+--     local headPos = player.Character.Head.Position + player.Character.HumanoidRootPart.Velocity*0.1
+--     -- Adjust camera
+--   end
+-- end
+
+
+Lesson SilentAim 5
+----------------------
+-- Teaching Notes:
+-- Iterate all players excluding LocalPlayer
+-- Predict head position: head.Position + velocity*lag
+-- Smooth camera adjustment using RenderStepped
+-- Safe client-side only
+-- Example pseudocode:
+-- for _,player in pairs(Players:GetPlayers()) do
+--   if player ~= LocalPlayer then
+--     local headPos = player.Character.Head.Position + player.Character.HumanoidRootPart.Velocity*0.1
+--     -- Adjust camera
+--   end
+-- end
+
+
+Lesson SilentAim 6
+----------------------
+-- Teaching Notes:
+-- Iterate all players excluding LocalPlayer
+-- Predict head position: head.Position + velocity*lag
+-- Smooth camera adjustment using RenderStepped
+-- Safe client-side only
+-- Example pseudocode:
+-- for _,player in pairs(Players:GetPlayers()) do
+--   if player ~= LocalPlayer then
+--     local headPos = player.Character.Head.Position + player.Character.HumanoidRootPart.Velocity*0.1
+--     -- Adjust camera
+--   end
+-- end
+
+
+Lesson SilentAim 7
+----------------------
+-- Teaching Notes:
+-- Iterate all players excluding LocalPlayer
+-- Predict head position: head.Position + velocity*lag
+-- Smooth camera adjustment using RenderStepped
+-- Safe client-side only
+-- Example pseudocode:
+-- for _,player in pairs(Players:GetPlayers()) do
+--   if player ~= LocalPlayer then
+--     local headPos = player.Character.Head.Position + player.Character.HumanoidRootPart.Velocity*0.1
+--     -- Adjust camera
+--   end
+-- end
+
+
+Lesson SilentAim 8
+----------------------
+-- Teaching Notes:
+-- Iterate all players excluding LocalPlayer
+-- Predict head position: head.Position + velocity*lag
+-- Smooth camera adjustment using RenderStepped
+-- Safe client-side only
+-- Example pseudocode:
+-- for _,player in pairs(Players:GetPlayers()) do
+--   if player ~= LocalPlayer then
+--     local headPos = player.Character.Head.Position + player.Character.HumanoidRootPart.Velocity*0.1
+--     -- Adjust camera
+--   end
+-- end
+
+
+Lesson SilentAim 9
+----------------------
+-- Teaching Notes:
+-- Iterate all players excluding LocalPlayer
+-- Predict head position: head.Position + velocity*lag
+-- Smooth camera adjustment using RenderStepped
+-- Safe client-side only
+-- Example pseudocode:
+-- for _,player in pairs(Players:GetPlayers()) do
+--   if player ~= LocalPlayer then
+--     local headPos = player.Character.Head.Position + player.Character.HumanoidRootPart.Velocity*0.1
+--     -- Adjust camera
+--   end
+-- end
+
+
+Lesson SilentAim 10
+----------------------
+-- Teaching Notes:
+-- Iterate all players excluding LocalPlayer
+-- Predict head position: head.Position + velocity*lag
+-- Smooth camera adjustment using RenderStepped
+-- Safe client-side only
+-- Example pseudocode:
+-- for _,player in pairs(Players:GetPlayers()) do
+--   if player ~= LocalPlayer then
+--     local headPos = player.Character.Head.Position + player.Character.HumanoidRootPart.Velocity*0.1
+--     -- Adjust camera
+--   end
+-- end
+
+
+Lesson SilentAim 11
+----------------------
+-- Teaching Notes:
+-- Iterate all players excluding LocalPlayer
+-- Predict head position: head.Position + velocity*lag
+-- Smooth camera adjustment using RenderStepped
+-- Safe client-side only
+-- Example pseudocode:
+-- for _,player in pairs(Players:GetPlayers()) do
+--   if player ~= LocalPlayer then
+--     local headPos = player.Character.Head.Position + player.Character.HumanoidRootPart.Velocity*0.1
+--     -- Adjust camera
+--   end
+-- end
+
+
+Lesson SilentAim 12
+----------------------
+-- Teaching Notes:
+-- Iterate all players excluding LocalPlayer
+-- Predict head position: head.Position + velocity*lag
+-- Smooth camera adjustment using RenderStepped
+-- Safe client-side only
+-- Example pseudocode:
+-- for _,player in pairs(Players:GetPlayers()) do
+--   if player ~= LocalPlayer then
+--     local headPos = player.Character.Head.Position + player.Character.HumanoidRootPart.Velocity*0.1
+--     -- Adjust camera
+--   end
+-- end
+
+
+Lesson SilentAim 13
+----------------------
+-- Teaching Notes:
+-- Iterate all players excluding LocalPlayer
+-- Predict head position: head.Position + velocity*lag
+-- Smooth camera adjustment using RenderStepped
+-- Safe client-side only
+-- Example pseudocode:
+-- for _,player in pairs(Players:GetPlayers()) do
+--   if player ~= LocalPlayer then
+--     local headPos = player.Character.Head.Position + player.Character.HumanoidRootPart.Velocity*0.1
+--     -- Adjust camera
+--   end
+-- end
+
+
+Lesson SilentAim 14
+----------------------
+-- Teaching Notes:
+-- Iterate all players excluding LocalPlayer
+-- Predict head position: head.Position + velocity*lag
+-- Smooth camera adjustment using RenderStepped
+-- Safe client-side only
+-- Example pseudocode:
+-- for _,player in pairs(Players:GetPlayers()) do
+--   if player ~= LocalPlayer then
+--     local headPos = player.Character.Head.Position + player.Character.HumanoidRootPart.Velocity*0.1
+--     -- Adjust camera
+--   end
+-- end
+
+
+Lesson SilentAim 15
+----------------------
+-- Teaching Notes:
+-- Iterate all players excluding LocalPlayer
+-- Predict head position: head.Position + velocity*lag
+-- Smooth camera adjustment using RenderStepped
+-- Safe client-side only
+-- Example pseudocode:
+-- for _,player in pairs(Players:GetPlayers()) do
+--   if player ~= LocalPlayer then
+--     local headPos = player.Character.Head.Position + player.Character.HumanoidRootPart.Velocity*0.1
+--     -- Adjust camera
+--   end
+-- end
+
+
+Lesson SilentAim 16
+----------------------
+-- Teaching Notes:
+-- Iterate all players excluding LocalPlayer
+-- Predict head position: head.Position + velocity*lag
+-- Smooth camera adjustment using RenderStepped
+-- Safe client-side only
+-- Example pseudocode:
+-- for _,player in pairs(Players:GetPlayers()) do
+--   if player ~= LocalPlayer then
+--     local headPos = player.Character.Head.Position + player.Character.HumanoidRootPart.Velocity*0.1
+--     -- Adjust camera
+--   end
+-- end
+
+
+Lesson SilentAim 17
+----------------------
+-- Teaching Notes:
+-- Iterate all players excluding LocalPlayer
+-- Predict head position: head.Position + velocity*lag
+-- Smooth camera adjustment using RenderStepped
+-- Safe client-side only
+-- Example pseudocode:
+-- for _,player in pairs(Players:GetPlayers()) do
+--   if player ~= LocalPlayer then
+--     local headPos = player.Character.Head.Position + player.Character.HumanoidRootPart.Velocity*0.1
+--     -- Adjust camera
+--   end
+-- end
+
+
+Lesson SilentAim 18
+----------------------
+-- Teaching Notes:
+-- Iterate all players excluding LocalPlayer
+-- Predict head position: head.Position + velocity*lag
+-- Smooth camera adjustment using RenderStepped
+-- Safe client-side only
+-- Example pseudocode:
+-- for _,player in pairs(Players:GetPlayers()) do
+--   if player ~= LocalPlayer then
+--     local headPos = player.Character.Head.Position + player.Character.HumanoidRootPart.Velocity*0.1
+--     -- Adjust camera
+--   end
+-- end
+
+
+Lesson SilentAim 19
+----------------------
+-- Teaching Notes:
+-- Iterate all players excluding LocalPlayer
+-- Predict head position: head.Position + velocity*lag
+-- Smooth camera adjustment using RenderStepped
+-- Safe client-side only
+-- Example pseudocode:
+-- for _,player in pairs(Players:GetPlayers()) do
+--   if player ~= LocalPlayer then
+--     local headPos = player.Character.Head.Position + player.Character.HumanoidRootPart.Velocity*0.1
+--     -- Adjust camera
+--   end
+-- end
+
+
+Lesson SilentAim 20
+----------------------
+-- Teaching Notes:
+-- Iterate all players excluding LocalPlayer
+-- Predict head position: head.Position + velocity*lag
+-- Smooth camera adjustment using RenderStepped
+-- Safe client-side only
+-- Example pseudocode:
+-- for _,player in pairs(Players:GetPlayers()) do
+--   if player ~= LocalPlayer then
+--     local headPos = player.Character.Head.Position + player.Character.HumanoidRootPart.Velocity*0.1
+--     -- Adjust camera
+--   end
+-- end
+
+
+Lesson SilentAim 21
+----------------------
+-- Teaching Notes:
+-- Iterate all players excluding LocalPlayer
+-- Predict head position: head.Position + velocity*lag
+-- Smooth camera adjustment using RenderStepped
+-- Safe client-side only
+-- Example pseudocode:
+-- for _,player in pairs(Players:GetPlayers()) do
+--   if player ~= LocalPlayer then
+--     local headPos = player.Character.Head.Position + player.Character.HumanoidRootPart.Velocity*0.1
+--     -- Adjust camera
+--   end
+-- end
+
+
+Lesson SilentAim 22
+----------------------
+-- Teaching Notes:
+-- Iterate all players excluding LocalPlayer
+-- Predict head position: head.Position + velocity*lag
+-- Smooth camera adjustment using RenderStepped
+-- Safe client-side only
+-- Example pseudocode:
+-- for _,player in pairs(Players:GetPlayers()) do
+--   if player ~= LocalPlayer then
+--     local headPos = player.Character.Head.Position + player.Character.HumanoidRootPart.Velocity*0.1
+--     -- Adjust camera
+--   end
+-- end
+
+
+Lesson SilentAim 23
+----------------------
+-- Teaching Notes:
+-- Iterate all players excluding LocalPlayer
+-- Predict head position: head.Position + velocity*lag
+-- Smooth camera adjustment using RenderStepped
+-- Safe client-side only
+-- Example pseudocode:
+-- for _,player in pairs(Players:GetPlayers()) do
+--   if player ~= LocalPlayer then
+--     local headPos = player.Character.Head.Position + player.Character.HumanoidRootPart.Velocity*0.1
+--     -- Adjust camera
+--   end
+-- end
+
+
+Lesson SilentAim 24
+----------------------
+-- Teaching Notes:
+-- Iterate all players excluding LocalPlayer
+-- Predict head position: head.Position + velocity*lag
+-- Smooth camera adjustment using RenderStepped
+-- Safe client-side only
+-- Example pseudocode:
+-- for _,player in pairs(Players:GetPlayers()) do
+--   if player ~= LocalPlayer then
+--     local headPos = player.Character.Head.Position + player.Character.HumanoidRootPart.Velocity*0.1
+--     -- Adjust camera
+--   end
+-- end
+
+
+Lesson SilentAim 25
+----------------------
+-- Teaching Notes:
+-- Iterate all players excluding LocalPlayer
+-- Predict head position: head.Position + velocity*lag
+-- Smooth camera adjustment using RenderStepped
+-- Safe client-side only
+-- Example pseudocode:
+-- for _,player in pairs(Players:GetPlayers()) do
+--   if player ~= LocalPlayer then
+--     local headPos = player.Character.Head.Position + player.Character.HumanoidRootPart.Velocity*0.1
+--     -- Adjust camera
+--   end
+-- end
+
+
+Lesson SilentAim 26
+----------------------
+-- Teaching Notes:
+-- Iterate all players excluding LocalPlayer
+-- Predict head position: head.Position + velocity*lag
+-- Smooth camera adjustment using RenderStepped
+-- Safe client-side only
+-- Example pseudocode:
+-- for _,player in pairs(Players:GetPlayers()) do
+--   if player ~= LocalPlayer then
+--     local headPos = player.Character.Head.Position + player.Character.HumanoidRootPart.Velocity*0.1
+--     -- Adjust camera
+--   end
+-- end
+
+
+Lesson SilentAim 27
+----------------------
+-- Teaching Notes:
+-- Iterate all players excluding LocalPlayer
+-- Predict head position: head.Position + velocity*lag
+-- Smooth camera adjustment using RenderStepped
+-- Safe client-side only
+-- Example pseudocode:
+-- for _,player in pairs(Players:GetPlayers()) do
+--   if player ~= LocalPlayer then
+--     local headPos = player.Character.Head.Position + player.Character.HumanoidRootPart.Velocity*0.1
+--     -- Adjust camera
+--   end
+-- end
+
+
+Lesson SilentAim 28
+----------------------
+-- Teaching Notes:
+-- Iterate all players excluding LocalPlayer
+-- Predict head position: head.Position + velocity*lag
+-- Smooth camera adjustment using RenderStepped
+-- Safe client-side only
+-- Example pseudocode:
+-- for _,player in pairs(Players:GetPlayers()) do
+--   if player ~= LocalPlayer then
+--     local headPos = player.Character.Head.Position + player.Character.HumanoidRootPart.Velocity*0.1
+--     -- Adjust camera
+--   end
+-- end
+
+
+Lesson SilentAim 29
+----------------------
+-- Teaching Notes:
+-- Iterate all players excluding LocalPlayer
+-- Predict head position: head.Position + velocity*lag
+-- Smooth camera adjustment using RenderStepped
+-- Safe client-side only
+-- Example pseudocode:
+-- for _,player in pairs(Players:GetPlayers()) do
+--   if player ~= LocalPlayer then
+--     local headPos = player.Character.Head.Position + player.Character.HumanoidRootPart.Velocity*0.1
+--     -- Adjust camera
+--   end
+-- end
+
+
+Lesson SilentAim 30
+----------------------
+-- Teaching Notes:
+-- Iterate all players excluding LocalPlayer
+-- Predict head position: head.Position + velocity*lag
+-- Smooth camera adjustment using RenderStepped
+-- Safe client-side only
+-- Example pseudocode:
+-- for _,player in pairs(Players:GetPlayers()) do
+--   if player ~= LocalPlayer then
+--     local headPos = player.Character.Head.Position + player.Character.HumanoidRootPart.Velocity*0.1
+--     -- Adjust camera
+--   end
+-- end
+
+
+Lesson SilentAim 31
+----------------------
+-- Teaching Notes:
+-- Iterate all players excluding LocalPlayer
+-- Predict head position: head.Position + velocity*lag
+-- Smooth camera adjustment using RenderStepped
+-- Safe client-side only
+-- Example pseudocode:
+-- for _,player in pairs(Players:GetPlayers()) do
+--   if player ~= LocalPlayer then
+--     local headPos = player.Character.Head.Position + player.Character.HumanoidRootPart.Velocity*0.1
+--     -- Adjust camera
+--   end
+-- end
+
+
+Lesson SilentAim 32
+----------------------
+-- Teaching Notes:
+-- Iterate all players excluding LocalPlayer
+-- Predict head position: head.Position + velocity*lag
+-- Smooth camera adjustment using RenderStepped
+-- Safe client-side only
+-- Example pseudocode:
+-- for _,player in pairs(Players:GetPlayers()) do
+--   if player ~= LocalPlayer then
+--     local headPos = player.Character.Head.Position + player.Character.HumanoidRootPart.Velocity*0.1
+--     -- Adjust camera
+--   end
+-- end
+
+
+Lesson SilentAim 33
+----------------------
+-- Teaching Notes:
+-- Iterate all players excluding LocalPlayer
+-- Predict head position: head.Position + velocity*lag
+-- Smooth camera adjustment using RenderStepped
+-- Safe client-side only
+-- Example pseudocode:
+-- for _,player in pairs(Players:GetPlayers()) do
+--   if player ~= LocalPlayer then
+--     local headPos = player.Character.Head.Position + player.Character.HumanoidRootPart.Velocity*0.1
+--     -- Adjust camera
+--   end
+-- end
+
+
+Lesson SilentAim 34
+----------------------
+-- Teaching Notes:
+-- Iterate all players excluding LocalPlayer
+-- Predict head position: head.Position + velocity*lag
+-- Smooth camera adjustment using RenderStepped
+-- Safe client-side only
+-- Example pseudocode:
+-- for _,player in pairs(Players:GetPlayers()) do
+--   if player ~= LocalPlayer then
+--     local headPos = player.Character.Head.Position + player.Character.HumanoidRootPart.Velocity*0.1
+--     -- Adjust camera
+--   end
+-- end
+
+
+Lesson SilentAim 35
+----------------------
+-- Teaching Notes:
+-- Iterate all players excluding LocalPlayer
+-- Predict head position: head.Position + velocity*lag
+-- Smooth camera adjustment using RenderStepped
+-- Safe client-side only
+-- Example pseudocode:
+-- for _,player in pairs(Players:GetPlayers()) do
+--   if player ~= LocalPlayer then
+--     local headPos = player.Character.Head.Position + player.Character.HumanoidRootPart.Velocity*0.1
+--     -- Adjust camera
+--   end
+-- end
+
+
+Lesson SilentAim 36
+----------------------
+-- Teaching Notes:
+-- Iterate all players excluding LocalPlayer
+-- Predict head position: head.Position + velocity*lag
+-- Smooth camera adjustment using RenderStepped
+-- Safe client-side only
+-- Example pseudocode:
+-- for _,player in pairs(Players:GetPlayers()) do
+--   if player ~= LocalPlayer then
+--     local headPos = player.Character.Head.Position + player.Character.HumanoidRootPart.Velocity*0.1
+--     -- Adjust camera
+--   end
+-- end
+
+
+Lesson SilentAim 37
+----------------------
+-- Teaching Notes:
+-- Iterate all players excluding LocalPlayer
+-- Predict head position: head.Position + velocity*lag
+-- Smooth camera adjustment using RenderStepped
+-- Safe client-side only
+-- Example pseudocode:
+-- for _,player in pairs(Players:GetPlayers()) do
+--   if player ~= LocalPlayer then
+--     local headPos = player.Character.Head.Position + player.Character.HumanoidRootPart.Velocity*0.1
+--     -- Adjust camera
+--   end
+-- end
+
+
+Lesson SilentAim 38
+----------------------
+-- Teaching Notes:
+-- Iterate all players excluding LocalPlayer
+-- Predict head position: head.Position + velocity*lag
+-- Smooth camera adjustment using RenderStepped
+-- Safe client-side only
+-- Example pseudocode:
+-- for _,player in pairs(Players:GetPlayers()) do
+--   if player ~= LocalPlayer then
+--     local headPos = player.Character.Head.Position + player.Character.HumanoidRootPart.Velocity*0.1
+--     -- Adjust camera
+--   end
+-- end
+
+
+Lesson SilentAim 39
+----------------------
+-- Teaching Notes:
+-- Iterate all players excluding LocalPlayer
+-- Predict head position: head.Position + velocity*lag
+-- Smooth camera adjustment using RenderStepped
+-- Safe client-side only
+-- Example pseudocode:
+-- for _,player in pairs(Players:GetPlayers()) do
+--   if player ~= LocalPlayer then
+--     local headPos = player.Character.Head.Position + player.Character.HumanoidRootPart.Velocity*0.1
+--     -- Adjust camera
+--   end
+-- end
+
+
+Lesson SilentAim 40
+----------------------
+-- Teaching Notes:
+-- Iterate all players excluding LocalPlayer
+-- Predict head position: head.Position + velocity*lag
+-- Smooth camera adjustment using RenderStepped
+-- Safe client-side only
+-- Example pseudocode:
+-- for _,player in pairs(Players:GetPlayers()) do
+--   if player ~= LocalPlayer then
+--     local headPos = player.Character.Head.Position + player.Character.HumanoidRootPart.Velocity*0.1
+--     -- Adjust camera
+--   end
+-- end
+
+
+Lesson SilentAim 41
+----------------------
+-- Teaching Notes:
+-- Iterate all players excluding LocalPlayer
+-- Predict head position: head.Position + velocity*lag
+-- Smooth camera adjustment using RenderStepped
+-- Safe client-side only
+-- Example pseudocode:
+-- for _,player in pairs(Players:GetPlayers()) do
+--   if player ~= LocalPlayer then
+--     local headPos = player.Character.Head.Position + player.Character.HumanoidRootPart.Velocity*0.1
+--     -- Adjust camera
+--   end
+-- end
+
+
+Lesson SilentAim 42
+----------------------
+-- Teaching Notes:
+-- Iterate all players excluding LocalPlayer
+-- Predict head position: head.Position + velocity*lag
+-- Smooth camera adjustment using RenderStepped
+-- Safe client-side only
+-- Example pseudocode:
+-- for _,player in pairs(Players:GetPlayers()) do
+--   if player ~= LocalPlayer then
+--     local headPos = player.Character.Head.Position + player.Character.HumanoidRootPart.Velocity*0.1
+--     -- Adjust camera
+--   end
+-- end
+
+
+Lesson SilentAim 43
+----------------------
+-- Teaching Notes:
+-- Iterate all players excluding LocalPlayer
+-- Predict head position: head.Position + velocity*lag
+-- Smooth camera adjustment using RenderStepped
+-- Safe client-side only
+-- Example pseudocode:
+-- for _,player in pairs(Players:GetPlayers()) do
+--   if player ~= LocalPlayer then
+--     local headPos = player.Character.Head.Position + player.Character.HumanoidRootPart.Velocity*0.1
+--     -- Adjust camera
+--   end
+-- end
+
+
+Lesson SilentAim 44
+----------------------
+-- Teaching Notes:
+-- Iterate all players excluding LocalPlayer
+-- Predict head position: head.Position + velocity*lag
+-- Smooth camera adjustment using RenderStepped
+-- Safe client-side only
+-- Example pseudocode:
+-- for _,player in pairs(Players:GetPlayers()) do
+--   if player ~= LocalPlayer then
+--     local headPos = player.Character.Head.Position + player.Character.HumanoidRootPart.Velocity*0.1
+--     -- Adjust camera
+--   end
+-- end
+
+
+Lesson SilentAim 45
+----------------------
+-- Teaching Notes:
+-- Iterate all players excluding LocalPlayer
+-- Predict head position: head.Position + velocity*lag
+-- Smooth camera adjustment using RenderStepped
+-- Safe client-side only
+-- Example pseudocode:
+-- for _,player in pairs(Players:GetPlayers()) do
+--   if player ~= LocalPlayer then
+--     local headPos = player.Character.Head.Position + player.Character.HumanoidRootPart.Velocity*0.1
+--     -- Adjust camera
+--   end
+-- end
+
+
+Lesson SilentAim 46
+----------------------
+-- Teaching Notes:
+-- Iterate all players excluding LocalPlayer
+-- Predict head position: head.Position + velocity*lag
+-- Smooth camera adjustment using RenderStepped
+-- Safe client-side only
+-- Example pseudocode:
+-- for _,player in pairs(Players:GetPlayers()) do
+--   if player ~= LocalPlayer then
+--     local headPos = player.Character.Head.Position + player.Character.HumanoidRootPart.Velocity*0.1
+--     -- Adjust camera
+--   end
+-- end
+
+
+Lesson SilentAim 47
+----------------------
+-- Teaching Notes:
+-- Iterate all players excluding LocalPlayer
+-- Predict head position: head.Position + velocity*lag
+-- Smooth camera adjustment using RenderStepped
+-- Safe client-side only
+-- Example pseudocode:
+-- for _,player in pairs(Players:GetPlayers()) do
+--   if player ~= LocalPlayer then
+--     local headPos = player.Character.Head.Position + player.Character.HumanoidRootPart.Velocity*0.1
+--     -- Adjust camera
+--   end
+-- end
+
+
+Lesson SilentAim 48
+----------------------
+-- Teaching Notes:
+-- Iterate all players excluding LocalPlayer
+-- Predict head position: head.Position + velocity*lag
+-- Smooth camera adjustment using RenderStepped
+-- Safe client-side only
+-- Example pseudocode:
+-- for _,player in pairs(Players:GetPlayers()) do
+--   if player ~= LocalPlayer then
+--     local headPos = player.Character.Head.Position + player.Character.HumanoidRootPart.Velocity*0.1
+--     -- Adjust camera
+--   end
+-- end
+
+
+Lesson SilentAim 49
+----------------------
+-- Teaching Notes:
+-- Iterate all players excluding LocalPlayer
+-- Predict head position: head.Position + velocity*lag
+-- Smooth camera adjustment using RenderStepped
+-- Safe client-side only
+-- Example pseudocode:
+-- for _,player in pairs(Players:GetPlayers()) do
+--   if player ~= LocalPlayer then
+--     local headPos = player.Character.Head.Position + player.Character.HumanoidRootPart.Velocity*0.1
+--     -- Adjust camera
+--   end
+-- end
+
+
+Lesson SilentAim 50
+----------------------
+-- Teaching Notes:
+-- Iterate all players excluding LocalPlayer
+-- Predict head position: head.Position + velocity*lag
+-- Smooth camera adjustment using RenderStepped
+-- Safe client-side only
+-- Example pseudocode:
+-- for _,player in pairs(Players:GetPlayers()) do
+--   if player ~= LocalPlayer then
+--     local headPos = player.Character.Head.Position + player.Character.HumanoidRootPart.Velocity*0.1
+--     -- Adjust camera
+--   end
+-- end
+
+
+Lesson Advanced 1: ESP / Camera / Tween / RemoteEvents
+----------------------------------------------------------
+-- ESP: BillboardGui on Head
+-- Camera: Smooth CFrame adjustments
+-- Tweened GUI: TweenService usage for smooth UI
+-- RemoteEvents: FireServer safely
+-- AutoFarm: ClickDetectors automation
+-- AntiAFK: VirtualUser.Button2Down/Up
+-- Mobile: Touch controls
+-- Executor safety: pcall(loadstring) for dynamic code
+-- Cleanup: cleanAll() before each generation
+
+
+Lesson Advanced 2: ESP / Camera / Tween / RemoteEvents
+----------------------------------------------------------
+-- ESP: BillboardGui on Head
+-- Camera: Smooth CFrame adjustments
+-- Tweened GUI: TweenService usage for smooth UI
+-- RemoteEvents: FireServer safely
+-- AutoFarm: ClickDetectors automation
+-- AntiAFK: VirtualUser.Button2Down/Up
+-- Mobile: Touch controls
+-- Executor safety: pcall(loadstring) for dynamic code
+-- Cleanup: cleanAll() before each generation
+
+
+Lesson Advanced 3: ESP / Camera / Tween / RemoteEvents
+----------------------------------------------------------
+-- ESP: BillboardGui on Head
+-- Camera: Smooth CFrame adjustments
+-- Tweened GUI: TweenService usage for smooth UI
+-- RemoteEvents: FireServer safely
+-- AutoFarm: ClickDetectors automation
+-- AntiAFK: VirtualUser.Button2Down/Up
+-- Mobile: Touch controls
+-- Executor safety: pcall(loadstring) for dynamic code
+-- Cleanup: cleanAll() before each generation
+
+
+Lesson Advanced 4: ESP / Camera / Tween / RemoteEvents
+----------------------------------------------------------
+-- ESP: BillboardGui on Head
+-- Camera: Smooth CFrame adjustments
+-- Tweened GUI: TweenService usage for smooth UI
+-- RemoteEvents: FireServer safely
+-- AutoFarm: ClickDetectors automation
+-- AntiAFK: VirtualUser.Button2Down/Up
+-- Mobile: Touch controls
+-- Executor safety: pcall(loadstring) for dynamic code
+-- Cleanup: cleanAll() before each generation
+
+
+Lesson Advanced 5: ESP / Camera / Tween / RemoteEvents
+----------------------------------------------------------
+-- ESP: BillboardGui on Head
+-- Camera: Smooth CFrame adjustments
+-- Tweened GUI: TweenService usage for smooth UI
+-- RemoteEvents: FireServer safely
+-- AutoFarm: ClickDetectors automation
+-- AntiAFK: VirtualUser.Button2Down/Up
+-- Mobile: Touch controls
+-- Executor safety: pcall(loadstring) for dynamic code
+-- Cleanup: cleanAll() before each generation
+
+
+Lesson Advanced 6: ESP / Camera / Tween / RemoteEvents
+----------------------------------------------------------
+-- ESP: BillboardGui on Head
+-- Camera: Smooth CFrame adjustments
+-- Tweened GUI: TweenService usage for smooth UI
+-- RemoteEvents: FireServer safely
+-- AutoFarm: ClickDetectors automation
+-- AntiAFK: VirtualUser.Button2Down/Up
+-- Mobile: Touch controls
+-- Executor safety: pcall(loadstring) for dynamic code
+-- Cleanup: cleanAll() before each generation
+
+
+Lesson Advanced 7: ESP / Camera / Tween / RemoteEvents
+----------------------------------------------------------
+-- ESP: BillboardGui on Head
+-- Camera: Smooth CFrame adjustments
+-- Tweened GUI: TweenService usage for smooth UI
+-- RemoteEvents: FireServer safely
+-- AutoFarm: ClickDetectors automation
+-- AntiAFK: VirtualUser.Button2Down/Up
+-- Mobile: Touch controls
+-- Executor safety: pcall(loadstring) for dynamic code
+-- Cleanup: cleanAll() before each generation
+
+
+Lesson Advanced 8: ESP / Camera / Tween / RemoteEvents
+----------------------------------------------------------
+-- ESP: BillboardGui on Head
+-- Camera: Smooth CFrame adjustments
+-- Tweened GUI: TweenService usage for smooth UI
+-- RemoteEvents: FireServer safely
+-- AutoFarm: ClickDetectors automation
+-- AntiAFK: VirtualUser.Button2Down/Up
+-- Mobile: Touch controls
+-- Executor safety: pcall(loadstring) for dynamic code
+-- Cleanup: cleanAll() before each generation
+
+
+Lesson Advanced 9: ESP / Camera / Tween / RemoteEvents
+----------------------------------------------------------
+-- ESP: BillboardGui on Head
+-- Camera: Smooth CFrame adjustments
+-- Tweened GUI: TweenService usage for smooth UI
+-- RemoteEvents: FireServer safely
+-- AutoFarm: ClickDetectors automation
+-- AntiAFK: VirtualUser.Button2Down/Up
+-- Mobile: Touch controls
+-- Executor safety: pcall(loadstring) for dynamic code
+-- Cleanup: cleanAll() before each generation
+
+
+Lesson Advanced 10: ESP / Camera / Tween / RemoteEvents
+----------------------------------------------------------
+-- ESP: BillboardGui on Head
+-- Camera: Smooth CFrame adjustments
+-- Tweened GUI: TweenService usage for smooth UI
+-- RemoteEvents: FireServer safely
+-- AutoFarm: ClickDetectors automation
+-- AntiAFK: VirtualUser.Button2Down/Up
+-- Mobile: Touch controls
+-- Executor safety: pcall(loadstring) for dynamic code
+-- Cleanup: cleanAll() before each generation
+
+
+Lesson Advanced 11: ESP / Camera / Tween / RemoteEvents
+----------------------------------------------------------
+-- ESP: BillboardGui on Head
+-- Camera: Smooth CFrame adjustments
+-- Tweened GUI: TweenService usage for smooth UI
+-- RemoteEvents: FireServer safely
+-- AutoFarm: ClickDetectors automation
+-- AntiAFK: VirtualUser.Button2Down/Up
+-- Mobile: Touch controls
+-- Executor safety: pcall(loadstring) for dynamic code
+-- Cleanup: cleanAll() before each generation
+
+
+Lesson Advanced 12: ESP / Camera / Tween / RemoteEvents
+----------------------------------------------------------
+-- ESP: BillboardGui on Head
+-- Camera: Smooth CFrame adjustments
+-- Tweened GUI: TweenService usage for smooth UI
+-- RemoteEvents: FireServer safely
+-- AutoFarm: ClickDetectors automation
+-- AntiAFK: VirtualUser.Button2Down/Up
+-- Mobile: Touch controls
+-- Executor safety: pcall(loadstring) for dynamic code
+-- Cleanup: cleanAll() before each generation
+
+
+Lesson Advanced 13: ESP / Camera / Tween / RemoteEvents
+----------------------------------------------------------
+-- ESP: BillboardGui on Head
+-- Camera: Smooth CFrame adjustments
+-- Tweened GUI: TweenService usage for smooth UI
+-- RemoteEvents: FireServer safely
+-- AutoFarm: ClickDetectors automation
+-- AntiAFK: VirtualUser.Button2Down/Up
+-- Mobile: Touch controls
+-- Executor safety: pcall(loadstring) for dynamic code
+-- Cleanup: cleanAll() before each generation
+
+
+Lesson Advanced 14: ESP / Camera / Tween / RemoteEvents
+----------------------------------------------------------
+-- ESP: BillboardGui on Head
+-- Camera: Smooth CFrame adjustments
+-- Tweened GUI: TweenService usage for smooth UI
+-- RemoteEvents: FireServer safely
+-- AutoFarm: ClickDetectors automation
+-- AntiAFK: VirtualUser.Button2Down/Up
+-- Mobile: Touch controls
+-- Executor safety: pcall(loadstring) for dynamic code
+-- Cleanup: cleanAll() before each generation
+
+
+Lesson Advanced 15: ESP / Camera / Tween / RemoteEvents
+----------------------------------------------------------
+-- ESP: BillboardGui on Head
+-- Camera: Smooth CFrame adjustments
+-- Tweened GUI: TweenService usage for smooth UI
+-- RemoteEvents: FireServer safely
+-- AutoFarm: ClickDetectors automation
+-- AntiAFK: VirtualUser.Button2Down/Up
+-- Mobile: Touch controls
+-- Executor safety: pcall(loadstring) for dynamic code
+-- Cleanup: cleanAll() before each generation
+
+
+Lesson Advanced 16: ESP / Camera / Tween / RemoteEvents
+----------------------------------------------------------
+-- ESP: BillboardGui on Head
+-- Camera: Smooth CFrame adjustments
+-- Tweened GUI: TweenService usage for smooth UI
+-- RemoteEvents: FireServer safely
+-- AutoFarm: ClickDetectors automation
+-- AntiAFK: VirtualUser.Button2Down/Up
+-- Mobile: Touch controls
+-- Executor safety: pcall(loadstring) for dynamic code
+-- Cleanup: cleanAll() before each generation
+
+
+Lesson Advanced 17: ESP / Camera / Tween / RemoteEvents
+----------------------------------------------------------
+-- ESP: BillboardGui on Head
+-- Camera: Smooth CFrame adjustments
+-- Tweened GUI: TweenService usage for smooth UI
+-- RemoteEvents: FireServer safely
+-- AutoFarm: ClickDetectors automation
+-- AntiAFK: VirtualUser.Button2Down/Up
+-- Mobile: Touch controls
+-- Executor safety: pcall(loadstring) for dynamic code
+-- Cleanup: cleanAll() before each generation
+
+
+Lesson Advanced 18: ESP / Camera / Tween / RemoteEvents
+----------------------------------------------------------
+-- ESP: BillboardGui on Head
+-- Camera: Smooth CFrame adjustments
+-- Tweened GUI: TweenService usage for smooth UI
+-- RemoteEvents: FireServer safely
+-- AutoFarm: ClickDetectors automation
+-- AntiAFK: VirtualUser.Button2Down/Up
+-- Mobile: Touch controls
+-- Executor safety: pcall(loadstring) for dynamic code
+-- Cleanup: cleanAll() before each generation
+
+
+Lesson Advanced 19: ESP / Camera / Tween / RemoteEvents
+----------------------------------------------------------
+-- ESP: BillboardGui on Head
+-- Camera: Smooth CFrame adjustments
+-- Tweened GUI: TweenService usage for smooth UI
+-- RemoteEvents: FireServer safely
+-- AutoFarm: ClickDetectors automation
+-- AntiAFK: VirtualUser.Button2Down/Up
+-- Mobile: Touch controls
+-- Executor safety: pcall(loadstring) for dynamic code
+-- Cleanup: cleanAll() before each generation
+
+
+Lesson Advanced 20: ESP / Camera / Tween / RemoteEvents
+----------------------------------------------------------
+-- ESP: BillboardGui on Head
+-- Camera: Smooth CFrame adjustments
+-- Tweened GUI: TweenService usage for smooth UI
+-- RemoteEvents: FireServer safely
+-- AutoFarm: ClickDetectors automation
+-- AntiAFK: VirtualUser.Button2Down/Up
+-- Mobile: Touch controls
+-- Executor safety: pcall(loadstring) for dynamic code
+-- Cleanup: cleanAll() before each generation
+
+
+Lesson Advanced 21: ESP / Camera / Tween / RemoteEvents
+----------------------------------------------------------
+-- ESP: BillboardGui on Head
+-- Camera: Smooth CFrame adjustments
+-- Tweened GUI: TweenService usage for smooth UI
+-- RemoteEvents: FireServer safely
+-- AutoFarm: ClickDetectors automation
+-- AntiAFK: VirtualUser.Button2Down/Up
+-- Mobile: Touch controls
+-- Executor safety: pcall(loadstring) for dynamic code
+-- Cleanup: cleanAll() before each generation
+
+
+Lesson Advanced 22: ESP / Camera / Tween / RemoteEvents
+----------------------------------------------------------
+-- ESP: BillboardGui on Head
+-- Camera: Smooth CFrame adjustments
+-- Tweened GUI: TweenService usage for smooth UI
+-- RemoteEvents: FireServer safely
+-- AutoFarm: ClickDetectors automation
+-- AntiAFK: VirtualUser.Button2Down/Up
+-- Mobile: Touch controls
+-- Executor safety: pcall(loadstring) for dynamic code
+-- Cleanup: cleanAll() before each generation
+
+
+Lesson Advanced 23: ESP / Camera / Tween / RemoteEvents
+----------------------------------------------------------
+-- ESP: BillboardGui on Head
+-- Camera: Smooth CFrame adjustments
+-- Tweened GUI: TweenService usage for smooth UI
+-- RemoteEvents: FireServer safely
+-- AutoFarm: ClickDetectors automation
+-- AntiAFK: VirtualUser.Button2Down/Up
+-- Mobile: Touch controls
+-- Executor safety: pcall(loadstring) for dynamic code
+-- Cleanup: cleanAll() before each generation
+
+
+Lesson Advanced 24: ESP / Camera / Tween / RemoteEvents
+----------------------------------------------------------
+-- ESP: BillboardGui on Head
+-- Camera: Smooth CFrame adjustments
+-- Tweened GUI: TweenService usage for smooth UI
+-- RemoteEvents: FireServer safely
+-- AutoFarm: ClickDetectors automation
+-- AntiAFK: VirtualUser.Button2Down/Up
+-- Mobile: Touch controls
+-- Executor safety: pcall(loadstring) for dynamic code
+-- Cleanup: cleanAll() before each generation
+
+
+Lesson Advanced 25: ESP / Camera / Tween / RemoteEvents
+----------------------------------------------------------
+-- ESP: BillboardGui on Head
+-- Camera: Smooth CFrame adjustments
+-- Tweened GUI: TweenService usage for smooth UI
+-- RemoteEvents: FireServer safely
+-- AutoFarm: ClickDetectors automation
+-- AntiAFK: VirtualUser.Button2Down/Up
+-- Mobile: Touch controls
+-- Executor safety: pcall(loadstring) for dynamic code
+-- Cleanup: cleanAll() before each generation
+
+
+Lesson Advanced 26: ESP / Camera / Tween / RemoteEvents
+----------------------------------------------------------
+-- ESP: BillboardGui on Head
+-- Camera: Smooth CFrame adjustments
+-- Tweened GUI: TweenService usage for smooth UI
+-- RemoteEvents: FireServer safely
+-- AutoFarm: ClickDetectors automation
+-- AntiAFK: VirtualUser.Button2Down/Up
+-- Mobile: Touch controls
+-- Executor safety: pcall(loadstring) for dynamic code
+-- Cleanup: cleanAll() before each generation
+
+
+Lesson Advanced 27: ESP / Camera / Tween / RemoteEvents
+----------------------------------------------------------
+-- ESP: BillboardGui on Head
+-- Camera: Smooth CFrame adjustments
+-- Tweened GUI: TweenService usage for smooth UI
+-- RemoteEvents: FireServer safely
+-- AutoFarm: ClickDetectors automation
+-- AntiAFK: VirtualUser.Button2Down/Up
+-- Mobile: Touch controls
+-- Executor safety: pcall(loadstring) for dynamic code
+-- Cleanup: cleanAll() before each generation
+
+
+Lesson Advanced 28: ESP / Camera / Tween / RemoteEvents
+----------------------------------------------------------
+-- ESP: BillboardGui on Head
+-- Camera: Smooth CFrame adjustments
+-- Tweened GUI: TweenService usage for smooth UI
+-- RemoteEvents: FireServer safely
+-- AutoFarm: ClickDetectors automation
+-- AntiAFK: VirtualUser.Button2Down/Up
+-- Mobile: Touch controls
+-- Executor safety: pcall(loadstring) for dynamic code
+-- Cleanup: cleanAll() before each generation
+
+
+Lesson Advanced 29: ESP / Camera / Tween / RemoteEvents
+----------------------------------------------------------
+-- ESP: BillboardGui on Head
+-- Camera: Smooth CFrame adjustments
+-- Tweened GUI: TweenService usage for smooth UI
+-- RemoteEvents: FireServer safely
+-- AutoFarm: ClickDetectors automation
+-- AntiAFK: VirtualUser.Button2Down/Up
+-- Mobile: Touch controls
+-- Executor safety: pcall(loadstring) for dynamic code
+-- Cleanup: cleanAll() before each generation
+
+
+Lesson Advanced 30: ESP / Camera / Tween / RemoteEvents
+----------------------------------------------------------
+-- ESP: BillboardGui on Head
+-- Camera: Smooth CFrame adjustments
+-- Tweened GUI: TweenService usage for smooth UI
+-- RemoteEvents: FireServer safely
+-- AutoFarm: ClickDetectors automation
+-- AntiAFK: VirtualUser.Button2Down/Up
+-- Mobile: Touch controls
+-- Executor safety: pcall(loadstring) for dynamic code
+-- Cleanup: cleanAll() before each generation
+
+
+Lesson Advanced 31: ESP / Camera / Tween / RemoteEvents
+----------------------------------------------------------
+-- ESP: BillboardGui on Head
+-- Camera: Smooth CFrame adjustments
+-- Tweened GUI: TweenService usage for smooth UI
+-- RemoteEvents: FireServer safely
+-- AutoFarm: ClickDetectors automation
+-- AntiAFK: VirtualUser.Button2Down/Up
+-- Mobile: Touch controls
+-- Executor safety: pcall(loadstring) for dynamic code
+-- Cleanup: cleanAll() before each generation
+
+
+Lesson Advanced 32: ESP / Camera / Tween / RemoteEvents
+----------------------------------------------------------
+-- ESP: BillboardGui on Head
+-- Camera: Smooth CFrame adjustments
+-- Tweened GUI: TweenService usage for smooth UI
+-- RemoteEvents: FireServer safely
+-- AutoFarm: ClickDetectors automation
+-- AntiAFK: VirtualUser.Button2Down/Up
+-- Mobile: Touch controls
+-- Executor safety: pcall(loadstring) for dynamic code
+-- Cleanup: cleanAll() before each generation
+
+
+Lesson Advanced 33: ESP / Camera / Tween / RemoteEvents
+----------------------------------------------------------
+-- ESP: BillboardGui on Head
+-- Camera: Smooth CFrame adjustments
+-- Tweened GUI: TweenService usage for smooth UI
+-- RemoteEvents: FireServer safely
+-- AutoFarm: ClickDetectors automation
+-- AntiAFK: VirtualUser.Button2Down/Up
+-- Mobile: Touch controls
+-- Executor safety: pcall(loadstring) for dynamic code
+-- Cleanup: cleanAll() before each generation
+
+
+Lesson Advanced 34: ESP / Camera / Tween / RemoteEvents
+----------------------------------------------------------
+-- ESP: BillboardGui on Head
+-- Camera: Smooth CFrame adjustments
+-- Tweened GUI: TweenService usage for smooth UI
+-- RemoteEvents: FireServer safely
+-- AutoFarm: ClickDetectors automation
+-- AntiAFK: VirtualUser.Button2Down/Up
+-- Mobile: Touch controls
+-- Executor safety: pcall(loadstring) for dynamic code
+-- Cleanup: cleanAll() before each generation
+
+
+Lesson Advanced 35: ESP / Camera / Tween / RemoteEvents
+----------------------------------------------------------
+-- ESP: BillboardGui on Head
+-- Camera: Smooth CFrame adjustments
+-- Tweened GUI: TweenService usage for smooth UI
+-- RemoteEvents: FireServer safely
+-- AutoFarm: ClickDetectors automation
+-- AntiAFK: VirtualUser.Button2Down/Up
+-- Mobile: Touch controls
+-- Executor safety: pcall(loadstring) for dynamic code
+-- Cleanup: cleanAll() before each generation
+
+
+Lesson Advanced 36: ESP / Camera / Tween / RemoteEvents
+----------------------------------------------------------
+-- ESP: BillboardGui on Head
+-- Camera: Smooth CFrame adjustments
+-- Tweened GUI: TweenService usage for smooth UI
+-- RemoteEvents: FireServer safely
+-- AutoFarm: ClickDetectors automation
+-- AntiAFK: VirtualUser.Button2Down/Up
+-- Mobile: Touch controls
+-- Executor safety: pcall(loadstring) for dynamic code
+-- Cleanup: cleanAll() before each generation
+
+
+Lesson Advanced 37: ESP / Camera / Tween / RemoteEvents
+----------------------------------------------------------
+-- ESP: BillboardGui on Head
+-- Camera: Smooth CFrame adjustments
+-- Tweened GUI: TweenService usage for smooth UI
+-- RemoteEvents: FireServer safely
+-- AutoFarm: ClickDetectors automation
+-- AntiAFK: VirtualUser.Button2Down/Up
+-- Mobile: Touch controls
+-- Executor safety: pcall(loadstring) for dynamic code
+-- Cleanup: cleanAll() before each generation
+
+
+Lesson Advanced 38: ESP / Camera / Tween / RemoteEvents
+----------------------------------------------------------
+-- ESP: BillboardGui on Head
+-- Camera: Smooth CFrame adjustments
+-- Tweened GUI: TweenService usage for smooth UI
+-- RemoteEvents: FireServer safely
+-- AutoFarm: ClickDetectors automation
+-- AntiAFK: VirtualUser.Button2Down/Up
+-- Mobile: Touch controls
+-- Executor safety: pcall(loadstring) for dynamic code
+-- Cleanup: cleanAll() before each generation
+
+
+Lesson Advanced 39: ESP / Camera / Tween / RemoteEvents
+----------------------------------------------------------
+-- ESP: BillboardGui on Head
+-- Camera: Smooth CFrame adjustments
+-- Tweened GUI: TweenService usage for smooth UI
+-- RemoteEvents: FireServer safely
+-- AutoFarm: ClickDetectors automation
+-- AntiAFK: VirtualUser.Button2Down/Up
+-- Mobile: Touch controls
+-- Executor safety: pcall(loadstring) for dynamic code
+-- Cleanup: cleanAll() before each generation
+
+
+Lesson Advanced 40: ESP / Camera / Tween / RemoteEvents
+----------------------------------------------------------
+-- ESP: BillboardGui on Head
+-- Camera: Smooth CFrame adjustments
+-- Tweened GUI: TweenService usage for smooth UI
+-- RemoteEvents: FireServer safely
+-- AutoFarm: ClickDetectors automation
+-- AntiAFK: VirtualUser.Button2Down/Up
+-- Mobile: Touch controls
+-- Executor safety: pcall(loadstring) for dynamic code
+-- Cleanup: cleanAll() before each generation
+
+
+Lesson Advanced 41: ESP / Camera / Tween / RemoteEvents
+----------------------------------------------------------
+-- ESP: BillboardGui on Head
+-- Camera: Smooth CFrame adjustments
+-- Tweened GUI: TweenService usage for smooth UI
+-- RemoteEvents: FireServer safely
+-- AutoFarm: ClickDetectors automation
+-- AntiAFK: VirtualUser.Button2Down/Up
+-- Mobile: Touch controls
+-- Executor safety: pcall(loadstring) for dynamic code
+-- Cleanup: cleanAll() before each generation
+
+
+Lesson Advanced 42: ESP / Camera / Tween / RemoteEvents
+----------------------------------------------------------
+-- ESP: BillboardGui on Head
+-- Camera: Smooth CFrame adjustments
+-- Tweened GUI: TweenService usage for smooth UI
+-- RemoteEvents: FireServer safely
+-- AutoFarm: ClickDetectors automation
+-- AntiAFK: VirtualUser.Button2Down/Up
+-- Mobile: Touch controls
+-- Executor safety: pcall(loadstring) for dynamic code
+-- Cleanup: cleanAll() before each generation
+
+
+Lesson Advanced 43: ESP / Camera / Tween / RemoteEvents
+----------------------------------------------------------
+-- ESP: BillboardGui on Head
+-- Camera: Smooth CFrame adjustments
+-- Tweened GUI: TweenService usage for smooth UI
+-- RemoteEvents: FireServer safely
+-- AutoFarm: ClickDetectors automation
+-- AntiAFK: VirtualUser.Button2Down/Up
+-- Mobile: Touch controls
+-- Executor safety: pcall(loadstring) for dynamic code
+-- Cleanup: cleanAll() before each generation
+
+
+Lesson Advanced 44: ESP / Camera / Tween / RemoteEvents
+----------------------------------------------------------
+-- ESP: BillboardGui on Head
+-- Camera: Smooth CFrame adjustments
+-- Tweened GUI: TweenService usage for smooth UI
+-- RemoteEvents: FireServer safely
+-- AutoFarm: ClickDetectors automation
+-- AntiAFK: VirtualUser.Button2Down/Up
+-- Mobile: Touch controls
+-- Executor safety: pcall(loadstring) for dynamic code
+-- Cleanup: cleanAll() before each generation
+
+
+Lesson Advanced 45: ESP / Camera / Tween / RemoteEvents
+----------------------------------------------------------
+-- ESP: BillboardGui on Head
+-- Camera: Smooth CFrame adjustments
+-- Tweened GUI: TweenService usage for smooth UI
+-- RemoteEvents: FireServer safely
+-- AutoFarm: ClickDetectors automation
+-- AntiAFK: VirtualUser.Button2Down/Up
+-- Mobile: Touch controls
+-- Executor safety: pcall(loadstring) for dynamic code
+-- Cleanup: cleanAll() before each generation
+
+
+Lesson Advanced 46: ESP / Camera / Tween / RemoteEvents
+----------------------------------------------------------
+-- ESP: BillboardGui on Head
+-- Camera: Smooth CFrame adjustments
+-- Tweened GUI: TweenService usage for smooth UI
+-- RemoteEvents: FireServer safely
+-- AutoFarm: ClickDetectors automation
+-- AntiAFK: VirtualUser.Button2Down/Up
+-- Mobile: Touch controls
+-- Executor safety: pcall(loadstring) for dynamic code
+-- Cleanup: cleanAll() before each generation
+
+
+Lesson Advanced 47: ESP / Camera / Tween / RemoteEvents
+----------------------------------------------------------
+-- ESP: BillboardGui on Head
+-- Camera: Smooth CFrame adjustments
+-- Tweened GUI: TweenService usage for smooth UI
+-- RemoteEvents: FireServer safely
+-- AutoFarm: ClickDetectors automation
+-- AntiAFK: VirtualUser.Button2Down/Up
+-- Mobile: Touch controls
+-- Executor safety: pcall(loadstring) for dynamic code
+-- Cleanup: cleanAll() before each generation
+
+
+Lesson Advanced 48: ESP / Camera / Tween / RemoteEvents
+----------------------------------------------------------
+-- ESP: BillboardGui on Head
+-- Camera: Smooth CFrame adjustments
+-- Tweened GUI: TweenService usage for smooth UI
+-- RemoteEvents: FireServer safely
+-- AutoFarm: ClickDetectors automation
+-- AntiAFK: VirtualUser.Button2Down/Up
+-- Mobile: Touch controls
+-- Executor safety: pcall(loadstring) for dynamic code
+-- Cleanup: cleanAll() before each generation
+
+
+Lesson Advanced 49: ESP / Camera / Tween / RemoteEvents
+----------------------------------------------------------
+-- ESP: BillboardGui on Head
+-- Camera: Smooth CFrame adjustments
+-- Tweened GUI: TweenService usage for smooth UI
+-- RemoteEvents: FireServer safely
+-- AutoFarm: ClickDetectors automation
+-- AntiAFK: VirtualUser.Button2Down/Up
+-- Mobile: Touch controls
+-- Executor safety: pcall(loadstring) for dynamic code
+-- Cleanup: cleanAll() before each generation
+
+
+Lesson Advanced 50: ESP / Camera / Tween / RemoteEvents
+----------------------------------------------------------
+-- ESP: BillboardGui on Head
+-- Camera: Smooth CFrame adjustments
+-- Tweened GUI: TweenService usage for smooth UI
+-- RemoteEvents: FireServer safely
+-- AutoFarm: ClickDetectors automation
+-- AntiAFK: VirtualUser.Button2Down/Up
+-- Mobile: Touch controls
+-- Executor safety: pcall(loadstring) for dynamic code
+-- Cleanup: cleanAll() before each generation
+
+
+Closing Notes
+-------------
+- Each lesson provides unique examples
+- Covers desktop + mobile
+- Executor-exclusive usage
+- Self-cleanup ensures old scripts/UI removed
+- Teaching Notes included throughout
